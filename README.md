@@ -23,6 +23,8 @@ Tile points can be input manually, or if the board-type allows it or an approxim
 
 A 2, B 5, C 3, D 3, E 1, F 5, G 4, H 4, I 2, J 10, K 6, L 3, M 4, N 2, O 2, P 4, Q 8, R 2, S 2, T 2, U 4, V 6, W 6, X 9, Y 5, Z 8.
 
-Multi-letter tiles get individual values summed + 3. 
+Either/Or tiles get a fixed value of 20 points. That's what I've seen in recent games.
+Multi-letter tiles get their individual values summed + 4.
+ 
 
 I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards. I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles. I've only looked into it a little bit.

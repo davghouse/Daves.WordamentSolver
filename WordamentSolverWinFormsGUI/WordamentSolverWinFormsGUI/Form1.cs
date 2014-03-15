@@ -24,7 +24,7 @@ namespace WordamentSolverWinFormsGUI
     public Form1()
     {
       InitializeComponent();
-      comboBox1.SelectedIndex = 6;
+      comboBox1.SelectedIndex = 5;
     }
 
     // Remapping the 32 Tile textboxes' Space and Enter to Tab.
@@ -73,7 +73,7 @@ namespace WordamentSolverWinFormsGUI
 
     }
 
-    // Go w/ pts = 1 button tabbing
+    // Go w/ TP guess button tabbing
     private void button1_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
@@ -140,18 +140,48 @@ namespace WordamentSolverWinFormsGUI
       ClearPathFormatting();
     }
 
-    // GO w/ pts = 1
+    // Go w/ TP guess
+    private static Dictionary<char, int> basicTileValues = new Dictionary<char, int>
+                                               {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2}, 
+                                               {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, 
+                                               {'R', 2}, {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};
     private void button1_Click(object sender, EventArgs e)
     {
-      foreach (Control c in tableLayoutPanel2.Controls)
+      ClearPathFormatting();
+      foreach (Control c in tableLayoutPanel1.Controls)
       {
-        c.Text = "1";
+        int i = Convert.ToInt32(c.Name.Substring(7));
+        foreach (Control d in tableLayoutPanel2.Controls)
+        {
+          int j = Convert.ToInt32(d.Name.Substring(7)) - dim * dim;
+          if (i == j)
+          {
+            string temp = c.Text;
+            int tileValue = 0;
+            for (int k = 0; k < temp.Count(); ++k)
+            {
+              if (Char.IsLetter(temp[k]))
+              {
+                tileValue += basicTileValues[temp[k]];
+              }
+            }
+            if (temp.Count() > 1)
+            {
+              tileValue += 4;
+            }
+            if (temp.Count() == 3 && (temp[1] == '\\' || temp[1] == '/'))
+            {
+              tileValue = 20;
+            }
+            d.Text = tileValue.ToString();
+          }
+        }
       }
       button2_Click(sender, e);
       SendKeys.Send("{RIGHT}");
     }
 
-    // GO
+    // Go
     private void button2_Click(object sender, EventArgs e)
     {
       ClearPathFormatting();
@@ -194,6 +224,8 @@ namespace WordamentSolverWinFormsGUI
         return;
       }
       // points
+
+      // What follows seems kind of disgusting.
       try
       {
         if (comboBox1.SelectedIndex == 1)
@@ -310,6 +342,7 @@ namespace WordamentSolverWinFormsGUI
     }
 
     // Ordering stuff
+    // What follows seems kind of disgusting.
     #region Ordering stuff
     private class WordPointPath
     {
@@ -653,6 +686,7 @@ namespace WordamentSolverWinFormsGUI
 
     private void ClearPathFormatting()
     {
+      label9.Text = "[]";
       foreach (Control c in tableLayoutPanel1.Controls)
       {
         string[] temp = c.Text.Split('|');
@@ -690,8 +724,10 @@ namespace WordamentSolverWinFormsGUI
     private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
       ClearPathFormatting();
+      string word = wordPointPaths[listBox1.SelectedIndex].word;
+      label9.Text = "[" + word + "]";
       List<int> path = wordPointPaths[listBox1.SelectedIndex].path;
-      // How to do this efficient? Is it possible? (I doubt it's necessary).
+      // How to do this efficiently? Is it possible? (it's not necessary).
       List<Color> colorGradient = CreateColorGradient(Color.LightGreen, Color.Tomato, path.Count());
       for (int i = path.Count() - 1; i >= 0; --i)
       {
@@ -796,6 +832,5 @@ namespace WordamentSolverWinFormsGUI
         }
       }
     }
-
   }
 }
