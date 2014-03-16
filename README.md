@@ -39,7 +39,4 @@ Other Stuff
 
 I want to sort the words in some efficient way where the last letter of this word is the first letter of the next word. And a sort, other than alphabetical, that gives me high-value words and then all of their extensions in order. Like GUARD: ED, ING, S all in a row.
 
-Banned words I've observed that weren't obvious:
-
-arse, lez
-
+It would be cool to make a robot solver.
