@@ -167,7 +167,7 @@ namespace WordamentSolverWinFormsGUI
             }
             if (temp.Count() > 1)
             {
-              tileValue += 4;
+              tileValue += 5;
             }
             if (temp.Count() == 3 && (temp[1] == '\\' || temp[1] == '/'))
             {

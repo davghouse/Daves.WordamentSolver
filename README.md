@@ -19,12 +19,22 @@ In the game, words have 'common' and 'uncommon' designations. I don't know how t
 
 There are ordering options based on physical path length. Paths are non-unique and I take the first valid one found, so the displayed ordering will be one of many.
 
-Tile points can be input manually, or if the board-type allows it or an approximation is good enough, the following values can be automatically used:
+Tile points can be input manually, or if the board-type allows it or an approximation is good enough (which is almost always), the following values can be automatically used:
 
 A 2, B 5, C 3, D 3, E 1, F 5, G 4, H 4, I 2, J 10, K 6, L 3, M 4, N 2, O 2, P 4, Q 8, R 2, S 2, T 2, U 4, V 6, W 6, X 9, Y 5, Z 8.
 
 Either/Or tiles get a fixed value of 20 points. That's what I've seen in recent games.
-Multi-letter tiles get their individual values summed + 4.
+Other multi-letter tiles get their individual values summed + 5. 3 or 4 might be correct more of the time, but we probably want to focus on that tile regardless.
  
 
-I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards. I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles. I've only looked into it a little bit.
+I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards, but I expect they do. I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles. I've only looked into it a little bit.
+
+Other Stuff
+-----------
+
+I want to sort the words in some efficient way where the last letter of this word is the first letter of the next word. And a sort, other than alphabetical, that gives me high-value words and then all of their extensions in order. Like GUARD: ED, ING, S all in a row.
+
+Banned words I've observed that weren't obvious:
+
+arse, lez
+
