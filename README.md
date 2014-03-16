@@ -3,6 +3,8 @@ wordament-solver
 
 (English) Wordament solver that handles digrams, prefixes, suffixes, and either/or tiles.
 
+Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.0.0).
+
 ![before](/Screenshots/1.PNG)
 ![after](/Screenshots/2.PNG)
 
