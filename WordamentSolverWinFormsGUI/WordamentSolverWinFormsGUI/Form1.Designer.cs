@@ -1,36 +1,35 @@
-﻿namespace WordamentSolverWinFormsGUI
-{
-  partial class Form1
-  {
+﻿﻿namespace WordamentSolverWinFormsGUI
+ {
+   partial class Form1
+   {
 
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+     /// <summary>
+     /// Required designer variable.
+     /// </summary>
+     private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (components != null))
-      {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+     /// <summary>
+     /// Clean up any resources being used.
+     /// </summary>
+     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+     protected override void Dispose(bool disposing)
+     {
+       if (disposing && (components != null)) {
+         components.Dispose();
+       }
+       base.Dispose(disposing);
+     }
 
-    #region Windows Form Designer generated code
+     #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-      this.textBox2 = new System.Windows.Forms.TextBox();
+     /// <summary>
+     /// Required method for Designer support - do not modify
+     /// the contents of this method with the code editor.
+     /// </summary>
+     private void InitializeComponent()
+     {
       this.textBox1 = new System.Windows.Forms.TextBox();
+      this.textBox2 = new System.Windows.Forms.TextBox();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.textBox3 = new System.Windows.Forms.TextBox();
       this.textBox4 = new System.Windows.Forms.TextBox();
@@ -48,8 +47,8 @@
       this.textBox16 = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-      this.textBox18 = new System.Windows.Forms.TextBox();
       this.textBox17 = new System.Windows.Forms.TextBox();
+      this.textBox18 = new System.Windows.Forms.TextBox();
       this.textBox19 = new System.Windows.Forms.TextBox();
       this.textBox20 = new System.Windows.Forms.TextBox();
       this.textBox21 = new System.Windows.Forms.TextBox();
@@ -87,16 +86,6 @@
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
-      // textBox2
-      // 
-      this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-      this.textBox2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox2.Location = new System.Drawing.Point(64, 3);
-      this.textBox2.Name = "textBox2";
-      this.textBox2.Size = new System.Drawing.Size(55, 20);
-      this.textBox2.TabIndex = 1;
-      this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
-      // 
       // textBox1
       // 
       this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -107,6 +96,16 @@
       this.textBox1.TabIndex = 0;
       this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
       // 
+      // textBox2
+      // 
+      this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+      this.textBox2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBox2.Location = new System.Drawing.Point(64, 3);
+      this.textBox2.Name = "textBox2";
+      this.textBox2.Size = new System.Drawing.Size(55, 20);
+      this.textBox2.TabIndex = 1;
+      this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+      // 
       // tableLayoutPanel1
       // 
       this.tableLayoutPanel1.ColumnCount = 4;
@@ -114,8 +113,8 @@
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 0);
       this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
+      this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 0);
       this.tableLayoutPanel1.Controls.Add(this.textBox3, 2, 0);
       this.tableLayoutPanel1.Controls.Add(this.textBox4, 3, 0);
       this.tableLayoutPanel1.Controls.Add(this.textBox5, 0, 1);
@@ -297,8 +296,8 @@
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
       this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.tableLayoutPanel2.Controls.Add(this.textBox18, 1, 0);
       this.tableLayoutPanel2.Controls.Add(this.textBox17, 0, 0);
+      this.tableLayoutPanel2.Controls.Add(this.textBox18, 1, 0);
       this.tableLayoutPanel2.Controls.Add(this.textBox19, 2, 0);
       this.tableLayoutPanel2.Controls.Add(this.textBox20, 3, 0);
       this.tableLayoutPanel2.Controls.Add(this.textBox21, 0, 1);
@@ -323,16 +322,6 @@
       this.tableLayoutPanel2.Size = new System.Drawing.Size(246, 132);
       this.tableLayoutPanel2.TabIndex = 3;
       // 
-      // textBox18
-      // 
-      this.textBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-      this.textBox18.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBox18.Location = new System.Drawing.Point(64, 3);
-      this.textBox18.Name = "textBox18";
-      this.textBox18.Size = new System.Drawing.Size(55, 20);
-      this.textBox18.TabIndex = 1;
-      this.textBox18.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
-      // 
       // textBox17
       // 
       this.textBox17.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -342,6 +331,16 @@
       this.textBox17.Size = new System.Drawing.Size(55, 20);
       this.textBox17.TabIndex = 0;
       this.textBox17.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+      // 
+      // textBox18
+      // 
+      this.textBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+      this.textBox18.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBox18.Location = new System.Drawing.Point(64, 3);
+      this.textBox18.Name = "textBox18";
+      this.textBox18.Size = new System.Drawing.Size(55, 20);
+      this.textBox18.TabIndex = 1;
+      this.textBox18.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
       // 
       // textBox19
       // 
@@ -539,8 +538,6 @@
       this.comboBox1.Name = "comboBox1";
       this.comboBox1.Size = new System.Drawing.Size(246, 22);
       this.comboBox1.TabIndex = 0;
-      this.comboBox1.DropDownClosed += new System.EventHandler(this.comboBox1_DropDownClosed);
-      this.comboBox1.Enter += new System.EventHandler(this.comboBox1_Enter);
       this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
       // 
       // button1
@@ -619,7 +616,7 @@
       this.label8.Name = "label8";
       this.label8.Size = new System.Drawing.Size(532, 14);
       this.label8.TabIndex = 12;
-      this.label8.Text = "TWL dictionary, \'common\' digram and theme words => results are approximate.";
+      this.label8.Text = "TWL dictionary, theme and \'common\' digram words => results are approximate.";
       // 
       // label5
       // 
@@ -725,65 +722,65 @@
       this.ResumeLayout(false);
       this.PerformLayout();
 
-    }
+     }
 
-    #endregion
+     #endregion
 
-    private System.Windows.Forms.TextBox textBox2;
-    private System.Windows.Forms.TextBox textBox1;
-    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-    private System.Windows.Forms.TextBox textBox3;
-    private System.Windows.Forms.TextBox textBox4;
-    private System.Windows.Forms.TextBox textBox5;
-    private System.Windows.Forms.TextBox textBox6;
-    private System.Windows.Forms.TextBox textBox7;
-    private System.Windows.Forms.TextBox textBox8;
-    private System.Windows.Forms.TextBox textBox9;
-    private System.Windows.Forms.TextBox textBox10;
-    private System.Windows.Forms.TextBox textBox11;
-    private System.Windows.Forms.TextBox textBox12;
-    private System.Windows.Forms.TextBox textBox13;
-    private System.Windows.Forms.TextBox textBox14;
-    private System.Windows.Forms.TextBox textBox15;
-    private System.Windows.Forms.TextBox textBox16;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-    private System.Windows.Forms.TextBox textBox18;
-    private System.Windows.Forms.TextBox textBox17;
-    private System.Windows.Forms.TextBox textBox19;
-    private System.Windows.Forms.TextBox textBox20;
-    private System.Windows.Forms.TextBox textBox21;
-    private System.Windows.Forms.TextBox textBox22;
-    private System.Windows.Forms.TextBox textBox23;
-    private System.Windows.Forms.TextBox textBox24;
-    private System.Windows.Forms.TextBox textBox25;
-    private System.Windows.Forms.TextBox textBox26;
-    private System.Windows.Forms.TextBox textBox27;
-    private System.Windows.Forms.TextBox textBox28;
-    private System.Windows.Forms.TextBox textBox29;
-    private System.Windows.Forms.TextBox textBox30;
-    private System.Windows.Forms.TextBox textBox31;
-    private System.Windows.Forms.TextBox textBox32;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.ComboBox comboBox1;
-    private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.Button button2;
-    private System.Windows.Forms.Button button3;
-    private System.Windows.Forms.ListBox listBox1;
-    private System.Windows.Forms.Label label6;
-    private System.Windows.Forms.Label label7;
-    private System.Windows.Forms.Label label8;
-    private System.Windows.Forms.Label label5;
-    private System.Windows.Forms.MenuStrip menuStrip1;
-    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-    private System.Windows.Forms.Button button4;
-    private System.Windows.Forms.Label label9;
+     private System.Windows.Forms.TextBox textBox1;
+     private System.Windows.Forms.TextBox textBox2;
+     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+     private System.Windows.Forms.TextBox textBox3;
+     private System.Windows.Forms.TextBox textBox4;
+     private System.Windows.Forms.TextBox textBox5;
+     private System.Windows.Forms.TextBox textBox6;
+     private System.Windows.Forms.TextBox textBox7;
+     private System.Windows.Forms.TextBox textBox8;
+     private System.Windows.Forms.TextBox textBox9;
+     private System.Windows.Forms.TextBox textBox10;
+     private System.Windows.Forms.TextBox textBox11;
+     private System.Windows.Forms.TextBox textBox12;
+     private System.Windows.Forms.TextBox textBox13;
+     private System.Windows.Forms.TextBox textBox14;
+     private System.Windows.Forms.TextBox textBox15;
+     private System.Windows.Forms.TextBox textBox16;
+     private System.Windows.Forms.Label label1;
+     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+     private System.Windows.Forms.TextBox textBox17;
+     private System.Windows.Forms.TextBox textBox18;
+     private System.Windows.Forms.TextBox textBox19;
+     private System.Windows.Forms.TextBox textBox20;
+     private System.Windows.Forms.TextBox textBox21;
+     private System.Windows.Forms.TextBox textBox22;
+     private System.Windows.Forms.TextBox textBox23;
+     private System.Windows.Forms.TextBox textBox24;
+     private System.Windows.Forms.TextBox textBox25;
+     private System.Windows.Forms.TextBox textBox26;
+     private System.Windows.Forms.TextBox textBox27;
+     private System.Windows.Forms.TextBox textBox28;
+     private System.Windows.Forms.TextBox textBox29;
+     private System.Windows.Forms.TextBox textBox30;
+     private System.Windows.Forms.TextBox textBox31;
+     private System.Windows.Forms.TextBox textBox32;
+     private System.Windows.Forms.Label label2;
+     private System.Windows.Forms.Label label3;
+     private System.Windows.Forms.Label label4;
+     private System.Windows.Forms.ComboBox comboBox1;
+     private System.Windows.Forms.Button button1;
+     private System.Windows.Forms.Button button2;
+     private System.Windows.Forms.Button button3;
+     private System.Windows.Forms.ListBox listBox1;
+     private System.Windows.Forms.Label label6;
+     private System.Windows.Forms.Label label7;
+     private System.Windows.Forms.Label label8;
+     private System.Windows.Forms.Label label5;
+     private System.Windows.Forms.MenuStrip menuStrip1;
+     private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+     private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+     private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+     private System.Windows.Forms.Button button4;
+     private System.Windows.Forms.Label label9;
 
 
-  }
-}
+   }
+ }
 
