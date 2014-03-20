@@ -1,9 +1,9 @@
 wordament-solver
 ================
 
-(English) Wordament solver that handles digrams, prefixes, suffixes, and either/or tiles.
+(English) Wordament solver that handles digrams, prefixes, suffixes, and either/or tiles. 
 
-Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.0.0).
+Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.0.0). I wrote this as an introduction to C#/.NET/WinForms.
 
 ![before](/Screenshots/1.PNG)
 ![after](/Screenshots/2.PNG)
