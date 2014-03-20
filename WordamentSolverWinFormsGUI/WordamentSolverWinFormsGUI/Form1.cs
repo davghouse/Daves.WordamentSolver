@@ -1,3 +1,5 @@
+﻿﻿// This is my first C# program... I was just here to learn... Be careful...
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,23 +16,18 @@ namespace WordamentSolverWinFormsGUI
 {
   public partial class Form1 : Form
   {
-    // There's a List<int> corresponding to each word; its path through the board.
-    private List<List<string>> words = new List<List<string>>();
-    private List<List<List<int>>> paths = new List<List<List<int>>>();
-    private List<List<int>> points = new List<List<int>>();
-    List<WordPointPath> wordPointPaths = new List<WordPointPath>();
-    private const int dim = 4;
-
     public Form1()
     {
       InitializeComponent();
-      comboBox1.SelectedIndex = 5;
+      comboBox1.SelectedIndex = 1;
     }
 
-    // Remapping the 32 Tile textboxes' Space and Enter to Tab.
+    // Allow for faster tabbing via space and clicking via enter.
+    #region Remapping keys
+
+    // 'Tile Strings' and 'Tile Points' textBoxes.
     private void textBox_KeyDown(object sender, KeyEventArgs e)
     {
-      comboBox1.TabStop = false;
       if (e.KeyCode == Keys.Space)
       {
         e.SuppressKeyPress = true;
@@ -43,7 +40,7 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-
+    // 'Words' listBox.
     private void ListBox_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
@@ -53,27 +50,17 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    private void comboBox1_Enter(object sender, EventArgs e)
-    {
-      //comboBox1.DroppedDown = true;
-    }
-
-    private void comboBox1_DropDownClosed(object sender, EventArgs e)
-    {
-      this.comboBox1.TabStop = false;
-    }
-
-    private void comboBox1_KeyDown(object sener, KeyEventArgs e)
+    // 'Order by:' comboBox.
+    private void comboBox1_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
       {
         e.SuppressKeyPress = true;
         SendKeys.Send("{TAB}");
       }
-
     }
 
-    // Go w/ TP guess button tabbing
+    // 'Go w/ TP guess' button.
     private void button1_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
@@ -87,7 +74,7 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // Go button tabbing
+    // 'Go' button.
     private void button2_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
@@ -102,7 +89,7 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // Clear button tabbing
+    // 'Clear' button.
     private void button3_KeyDown(object sender, KeyEventArgs e)
     {
       if (e.KeyCode == Keys.Space)
@@ -116,8 +103,13 @@ namespace WordamentSolverWinFormsGUI
         button3_Click(sender, e);
       }
     }
+    
+    #endregion
 
-    // Clear Boards button
+    // Clear the boards to get ready for a new game.
+    #region Clearing boards
+
+    // 'Clear Boards' button.
     private void button3_Click(object sender, EventArgs e)
     {
       ClearPathFormatting();
@@ -134,26 +126,40 @@ namespace WordamentSolverWinFormsGUI
       label7.Text = "Words found: ";
     }
 
-    // Clear Path button
+    // 'Clear Path' button.
     private void button4_Click(object sender, EventArgs e)
     {
       ClearPathFormatting();
     }
 
-    // Go w/ TP guess
-    private static Dictionary<char, int> basicTileValues = new Dictionary<char, int>
-                                               {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2}, 
-                                               {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, 
-                                               {'R', 2}, {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};
+    private void ClearPathFormatting()
+    {
+      label9.Text = "[]";
+      foreach (Control c in tableLayoutPanel1.Controls)
+      {
+        string[] temp = c.Text.Split('|');
+        c.Text = temp[temp.Count() - 1];
+        c.Font = new Font(c.Font, FontStyle.Regular);
+        c.BackColor = Color.White;
+      }
+    }
+
+    #endregion
+
+    // Go buttons.
+    #region Going
+
+    // 'Go w/ TP guess' button.
     private void button1_Click(object sender, EventArgs e)
     {
       ClearPathFormatting();
+      // A zip operation could be used here; would like to traverse tableLayoutPanel1's and tableLayoutPanel2's controls simultaneously.
+      int i = 0;
       foreach (Control c in tableLayoutPanel1.Controls)
       {
-        int i = Convert.ToInt32(c.Name.Substring(7));
+        int j = 0;
         foreach (Control d in tableLayoutPanel2.Controls)
         {
-          int j = Convert.ToInt32(d.Name.Substring(7)) - dim * dim;
           if (i == j)
           {
             string temp = c.Text;
@@ -165,41 +171,46 @@ namespace WordamentSolverWinFormsGUI
                 tileValue += basicTileValues[temp[k]];
               }
             }
+            // Special tile type.
             if (temp.Count() > 1)
             {
               tileValue += 5;
             }
+            // Either/or tile.
             if (temp.Count() == 3 && (temp[1] == '\\' || temp[1] == '/'))
             {
               tileValue = 20;
             }
             d.Text = tileValue.ToString();
+            break;
           }
+          ++j;
         }
+        ++i;
       }
+      // Go after guessing at Tile Points values.
       button2_Click(sender, e);
       SendKeys.Send("{RIGHT}");
     }
 
-    // Go
+    // 'Go' button.
     private void button2_Click(object sender, EventArgs e)
     {
+      // Clean up.
+      comboBox1.TabStop = false;
       ClearPathFormatting();
       listBox1.Items.Clear();
-      string[] stringBoard = new string[dim * dim];
-      foreach (Control c in tableLayoutPanel1.Controls)
-      {
-        string temp = c.Name;
-        // textBoxXX; number begins at the 7th index.
-        temp = temp.Substring(7);
-        int i = Convert.ToInt32(temp);
-        stringBoard[i - 1] = c.Text;
-      }
       words.Clear();
       paths.Clear();
       points.Clear();
       wordPointPaths.Clear();
-
+      string[] stringBoard = new string[dim * dim];
+      int boardPos = 0;
+      foreach (Control c in tableLayoutPanel1.Controls)
+      {
+        stringBoard[boardPos++] = c.Text;
+      }
+      // Solve, and find point values.
       try
       {
         words = WordamentRecursiveOOSolver.Solver.RunSolver(stringBoard, paths);
@@ -207,7 +218,9 @@ namespace WordamentSolverWinFormsGUI
       }
       catch
       {
+        // If there's a problem, it's hopefully with what was input by the user. Let them figure it out.
       }
+      // Fill this out for use in sorting.
       for (int i = 0; i < words.Count(); ++i)
       {
         for (int j = 0; j < words[i].Count(); ++j)
@@ -215,135 +228,77 @@ namespace WordamentSolverWinFormsGUI
           wordPointPaths.Add(new WordPointPath(words[i][j], points[i][j], paths[i][j]));
         }
       }
-      // comboBoxes are zero-indexed with -1 representing no selection.
-      //if(comboBox1.SelectedIndex = 0)
-      // Default: alphabetical
-      if (comboBox1.SelectedIndex == -1 || comboBox1.SelectedIndex == 0)
+      // Sort.
+      try
       {
+        // Good place to use reflection?
+        switch (comboBox1.SelectedIndex)
+        {
+          case 1:
+            wordPointPaths.Sort(new WordPointPathComparer1());
+            break;
+          case 2:
+            wordPointPaths.Sort(new WordPointPathComparer2());
+            break;
+          case 3:
+            wordPointPaths.Sort(new WordPointPathComparer3());
+            break;
+          case 4:
+            wordPointPaths.Sort(new WordPointPathComparer4());
+            break;
+          case 5:
+            wordPointPaths.Sort(new WordPointPathComparer5());
+            break;
+          case 6:
+            wordPointPaths.Sort(new WordPointPathComparer6());
+            break;
+          case 7:
+            wordPointPaths.Sort(new WordPointPathComparer7());
+            break;
+          case 8:
+            wordPointPaths.Sort(new WordPointPathComparer8());
+            break;
+          case 9:
+            wordPointPaths.Sort(new WordPointPathComparer9());
+            break;
+          case 10:
+            wordPointPaths.Sort(new WordPointPathComparer10());
+            break;
+          case 11:
+            wordPointPaths.Sort(new WordPointPathComparer11());
+            break;
+          case 12:
+            wordPointPaths.Sort(new WordPointPathComparer12());
+            break;
+          case 13:
+            wordPointPaths.Sort(new WordPointPathComparer13());
+            break;
+          case 14:
+            wordPointPaths.Sort(new WordPointPathComparer14());
+            break;
+          case 15:
+            wordPointPaths.Sort(new WordPointPathComparer15());
+            break;
+          default:
+            break;
+        }
         Display(wordPointPaths);
         return;
       }
-      // points
-
-      // What follows seems kind of disgusting.
-      try
-      {
-        if (comboBox1.SelectedIndex == 1)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer1());
-          Display(wordPointPaths);
-          return;
-        }
-        // word length
-        if (comboBox1.SelectedIndex == 2)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer2());
-          Display(wordPointPaths);
-          return;
-        }
-        // physical path length
-        if (comboBox1.SelectedIndex == 3)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer3());
-          Display(wordPointPaths);
-          return;
-        }
-        // points / word length
-        if (comboBox1.SelectedIndex == 4)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer4());
-          Display(wordPointPaths);
-          return;
-        }
-        // points / path length
-        if (comboBox1.SelectedIndex == 5)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer5());
-          Display(wordPointPaths);
-          return;
-        }
-        // start position by: points
-        if (comboBox1.SelectedIndex == 6)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer6());
-          Display(wordPointPaths);
-          return;
-        }
-        // start position by: word length
-        if (comboBox1.SelectedIndex == 7)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer7());
-          Display(wordPointPaths);
-          return;
-        }
-        // start position by: points / word length
-        if (comboBox1.SelectedIndex == 8)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer8());
-          Display(wordPointPaths);
-          return;
-        }
-        // start position by: points / path length
-        if (comboBox1.SelectedIndex == 9)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer9());
-          Display(wordPointPaths);
-          return;
-        }
-        // A, B, ... by: points
-        if (comboBox1.SelectedIndex == 10)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer10());
-          Display(wordPointPaths);
-          return;
-        }
-        // A, B, ... by: word length
-        if (comboBox1.SelectedIndex == 11)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer11());
-          Display(wordPointPaths);
-          return;
-        }
-        // A, B, ... by: points / word length
-        if (comboBox1.SelectedIndex == 12)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer12());
-          Display(wordPointPaths);
-          return;
-        }
-        // A, B, ... by: points / path length
-        if (comboBox1.SelectedIndex == 13)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer13());
-          Display(wordPointPaths);
-          return;
-        }
-        // speed round: word length ascending
-        if (comboBox1.SelectedIndex == 14)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer14());
-          Display(wordPointPaths);
-          return;
-        }
-        // speed round: start position by word length ascending
-        if (comboBox1.SelectedIndex == 15)
-        {
-          wordPointPaths.Sort(new WordPointPathComparer15());
-          Display(wordPointPaths);
-          return;
-        }
-      }
       finally
       {
+        // After pressing Go, make sure the first item in ListBox1 is selected.
         SendKeys.Send("{RIGHT}");
         SendKeys.Send("{RIGHT}");
       }
-
     }
+    
+    #endregion
 
-    // Ordering stuff
-    // What follows seems kind of disgusting.
-    #region Ordering stuff
+    // WordPointPath class and IComparers to help with the different sorts.
+    #region Ordering
+
+    // Necessary as a way to make sorting easier.
     private class WordPointPath
     {
       public WordPointPath(string word, int points, List<int> path)
@@ -357,7 +312,7 @@ namespace WordamentSolverWinFormsGUI
       public List<int> path;
     }
 
-    // points
+    // Points.
     private class WordPointPathComparer1 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -370,7 +325,7 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // word length
+    // Word length.
     private class WordPointPathComparer2 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -383,22 +338,22 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // path length
+    // Path length.
     private class WordPointPathComparer3 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        double lhsPathLength = PhysicalPathLength(lhs.path);
-        double rhsPathLength = PhysicalPathLength(rhs.path);
-        if (lhsPathLength != rhsPathLength)
+        double a = PhysicalPathLength(lhs.path);
+        double b = PhysicalPathLength(rhs.path);
+        if (a != b)
         {
-          return rhsPathLength.CompareTo(lhsPathLength);
+          return b.CompareTo(a);
         }
         return lhs.word.CompareTo(rhs.word);
       }
     }
 
-    // points / word length
+    // Points / word length.
     private class WordPointPathComparer4 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -413,7 +368,7 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // points / path length
+    // Points / path length.
     private class WordPointPathComparer5 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -428,75 +383,68 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // start position by: points
+    // Paths are stored backwards, hence looking at the final element in the following IComparers.
+    // Start position by: points.
     private class WordPointPathComparer6 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        // Remember that paths are stored backwards
         int a = lhs.path[lhs.path.Count() - 1];
         int b = rhs.path[rhs.path.Count() - 1];
         if (a != b)
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer1 temp = new WordPointPathComparer1();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer1()).Compare(lhs, rhs);
       }
     }
 
-    // start position by: word length
+    // Start position by: word length.
     private class WordPointPathComparer7 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        // Remember that paths are stored backwards
         int a = lhs.path[lhs.path.Count() - 1];
         int b = rhs.path[rhs.path.Count() - 1];
         if (a != b)
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer2 temp = new WordPointPathComparer2();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer2()).Compare(lhs, rhs);
       }
     }
 
-    // start position by: points / word length
+    // Start position by: points / word length.
     private class WordPointPathComparer8 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        // Remember that paths are stored backwards
         int a = lhs.path[lhs.path.Count() - 1];
         int b = rhs.path[rhs.path.Count() - 1];
         if (a != b)
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer4 temp = new WordPointPathComparer4();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer4()).Compare(lhs, rhs);
       }
     }
 
-    // start position by: points / path length
+    // Start position by: points / path length.
     private class WordPointPathComparer9 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        // Remember that paths are stored backwards
         int a = lhs.path[lhs.path.Count() - 1];
         int b = rhs.path[rhs.path.Count() - 1];
         if (a != b)
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer5 temp = new WordPointPathComparer5();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer5()).Compare(lhs, rhs);
       }
     }
 
-    // A, B, ... by: points
+    // A, B, ... by: points.
     private class WordPointPathComparer10 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -507,12 +455,11 @@ namespace WordamentSolverWinFormsGUI
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer1 temp = new WordPointPathComparer1();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer1()).Compare(lhs, rhs);
       }
     }
 
-    // A, B, ... by: word length
+    // A, B, ... by: word length.
     private class WordPointPathComparer11 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -523,12 +470,11 @@ namespace WordamentSolverWinFormsGUI
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer2 temp = new WordPointPathComparer2();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer2()).Compare(lhs, rhs);
       }
     }
 
-    // A, B, ... by: points / word length
+    // A, B, ... by: points / word length.
     private class WordPointPathComparer12 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -539,12 +485,11 @@ namespace WordamentSolverWinFormsGUI
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer4 temp = new WordPointPathComparer4();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer4()).Compare(lhs, rhs);
       }
     }
 
-    // A, B, ... by: points / path length
+    // A, B, ... by: points / path length.
     private class WordPointPathComparer13 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -555,12 +500,11 @@ namespace WordamentSolverWinFormsGUI
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer5 temp = new WordPointPathComparer5();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer5()).Compare(lhs, rhs);
       }
     }
 
-    // speed round: word length ascending
+    // Speed round: word length ascending.
     private class WordPointPathComparer14 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
@@ -573,23 +517,20 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // speed round: start position by word length ascending
+    // Speed round: start position by word length ascending.
     private class WordPointPathComparer15 : IComparer<WordPointPath>
     {
       public int Compare(WordPointPath lhs, WordPointPath rhs)
       {
-        // Remember that paths are stored backwards
         int a = lhs.path[lhs.path.Count() - 1];
         int b = rhs.path[rhs.path.Count() - 1];
         if (a != b)
         {
           return a.CompareTo(b);
         }
-        WordPointPathComparer14 temp = new WordPointPathComparer14();
-        return temp.Compare(lhs, rhs);
+        return (new WordPointPathComparer14()).Compare(lhs, rhs);
       }
     }
-
 
     private static double PhysicalPathLength(List<int> path)
     {
@@ -610,26 +551,29 @@ namespace WordamentSolverWinFormsGUI
       }
       return pathLength;
     }
+
     #endregion
+
+    // Compute points.
+    #region Computing points
 
     private void ComputePoints(List<List<string>> words, List<List<List<int>>> paths, List<List<int>> points)
     {
-      // Generate points array
       int[] pointsBoard = new int[dim * dim];
+      int boardPos = 0;
       foreach (Control c in tableLayoutPanel2.Controls)
       {
-        string temp = c.Name;
-        temp = temp.Substring(7);
-        // In a 4x4 board, textBox17 is the first textBox in the Tile Points tableLayoutPanel.
-        // The path itself is zero-indexed, so subtract dim^2 - 1 to adjust.
-        int i = Convert.ToInt32(temp) - (dim * dim + 1);
         try
         {
-          pointsBoard[i] = Convert.ToInt32(c.Text);
+          pointsBoard[boardPos] = Convert.ToInt32(c.Text);
         }
         catch
         {
-          pointsBoard[i] = 0;
+          pointsBoard[boardPos] = 0;
+        }
+        finally
+        {
+          ++boardPos;
         }
       }
       for (int i = 0; i < words.Count(); ++i)
@@ -642,35 +586,32 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    private int ComputePointsHelper(int wordLength, List<int> path, int[] pointsArray)
+    private int ComputePointsHelper(int wordLength, List<int> path, int[] pointsBoard)
     {
       int ret = 0;
       for (int i = 0; i < path.Count(); ++i)
       {
-        ret += pointsArray[path[i]];
+        ret += pointsBoard[path[i]];
       }
       if (wordLength >= 8)
       {
-        ret = (int)(2.5 * ret);
+        return (int)(2.5 * ret);
       }
-      else if (wordLength >= 6)
+      if (wordLength >= 6)
       {
-        ret = 2 * ret;
+        return 2 * ret;
       }
-      else if (wordLength >= 5)
+      if (wordLength >= 5)
       {
-        ret = (int)(1.5 * ret);
+        return (int)(1.5 * ret);
       }
-      // Only words designated as 'common' get a bonus of 5 points for using the digram tile.
-      // No way for me currently to determine what's common.
-      /*
-      if (WordamentRecursiveOOSolver.Solver.digram && (wordLength > path.Count()))
-      {
-        ret += 5;
-      }
-       */
       return ret;
     }
+
+    #endregion
+
+    // Display boards and paths.
+    #region Displaying
 
     private void Display(List<WordPointPath> wordPointPairs)
     {
@@ -684,15 +625,29 @@ namespace WordamentSolverWinFormsGUI
       label7.Text = "Words found: " + wordPointPairs.Count();
     }
 
-    private void ClearPathFormatting()
+    // Displaying paths.
+    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
-      label9.Text = "[]";
-      foreach (Control c in tableLayoutPanel1.Controls)
+      ClearPathFormatting();
+      string word = wordPointPaths[listBox1.SelectedIndex].word;
+      label9.Text = "[" + word + "]";
+      List<int> path = wordPointPaths[listBox1.SelectedIndex].path;
+      List<Color> colorGradient = CreateColorGradient(Color.LightGreen, Color.Tomato, path.Count());
+      for (int i = path.Count() - 1; i >= 0; --i)
       {
-        string[] temp = c.Text.Split('|');
-        c.Text = temp[temp.Count() - 1];
-        c.Font = new Font(c.Font, FontStyle.Regular);
-        c.BackColor = Color.White;
+        int boxIndex = path[i];
+        int trialBoxIndex = 0;
+        foreach (Control c in tableLayoutPanel1.Controls)
+        {
+          if (boxIndex == trialBoxIndex)
+          {
+            c.Font = new Font(c.Font, FontStyle.Bold);
+            c.BackColor = colorGradient[i];
+            c.Text = (path.Count() - i) + "|" + c.Text;
+            break;
+          }
+          ++trialBoxIndex;
+        }
       }
     }
 
@@ -719,36 +674,12 @@ namespace WordamentSolverWinFormsGUI
       }
       return colorGradient;
     }
+    
+    #endregion
 
-    // Displaying paths
-    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      ClearPathFormatting();
-      string word = wordPointPaths[listBox1.SelectedIndex].word;
-      label9.Text = "[" + word + "]";
-      List<int> path = wordPointPaths[listBox1.SelectedIndex].path;
-      // How to do this efficiently? Is it possible? (it's not necessary).
-      List<Color> colorGradient = CreateColorGradient(Color.LightGreen, Color.Tomato, path.Count());
-      for (int i = path.Count() - 1; i >= 0; --i)
-      {
-        int boxIndex = path[i];
-        foreach (Control c in tableLayoutPanel1.Controls)
-        {
-          string temp = c.Name;
-          temp = temp.Substring(7);
-          int trialBoxIndex = Convert.ToInt32(temp) - 1;
-          if (boxIndex == trialBoxIndex)
-          {
-            c.Font = new Font(c.Font, FontStyle.Bold);
-            c.BackColor = colorGradient[i];
-            c.Text = (path.Count() - i) + "|" + c.Text;
-            break;
-          }
-        }
-      }
-    }
+    // Save and load boards.
+    #region Saving and loading
 
-    // Saving a board...
     private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       SaveFileDialog dialog = new SaveFileDialog();
@@ -761,26 +692,19 @@ namespace WordamentSolverWinFormsGUI
         {
           string[] stringBoard = new string[dim * dim];
           string[] pointsBoard = new string[dim * dim];
+          int counter = 0;
           foreach (Control c in tableLayoutPanel1.Controls)
           {
-            string temp = c.Name;
-            // textBoxXX; number begins at the 7th index.
-            temp = temp.Substring(7);
-            int i = Convert.ToInt32(temp);
-            stringBoard[i - 1] = c.Text;
+            stringBoard[counter++] = c.Text;
           }
           for (int i = 0; i < dim * dim; ++i)
           {
             writer.WriteLine(stringBoard[i]);
           }
+          counter = 0;
           foreach (Control c in tableLayoutPanel2.Controls)
           {
-            string temp = c.Name;
-            temp = temp.Substring(7);
-            // In a 4x4 board, textBox17 is the first textBox in the Tile Points tableLayoutPanel.
-            // The path itself is zero-indexed, so subtract dim^2 - 1 to adjust.
-            int i = Convert.ToInt32(temp) - (dim * dim + 1);
-            pointsBoard[i] = c.Text;
+            pointsBoard[counter++] = c.Text;
           }
           for (int i = 0; i < dim * dim; ++i)
           {
@@ -790,7 +714,6 @@ namespace WordamentSolverWinFormsGUI
       }
     }
 
-    // Loading a board...
     private void loadToolStripMenuItem_Click(object sender, EventArgs e)
     {
       OpenFileDialog dialog = new OpenFileDialog();
@@ -804,6 +727,7 @@ namespace WordamentSolverWinFormsGUI
         {
           string[] stringBoard = new string[dim * dim];
           string[] pointBoard = new string[dim * dim];
+          int counter = 0;
           for (int i = 0; i < dim * dim; ++i)
           {
             stringBoard[i] = reader.ReadLine();
@@ -814,23 +738,42 @@ namespace WordamentSolverWinFormsGUI
           }
           foreach (Control c in tableLayoutPanel1.Controls)
           {
-            string temp = c.Name;
-            // textBoxXX; number begins at the 7th index.
-            temp = temp.Substring(7);
-            int i = Convert.ToInt32(temp) - 1;
-            c.Text = stringBoard[i];
+            c.Text = stringBoard[counter++];
           }
+          counter = 0;
           foreach (Control c in tableLayoutPanel2.Controls)
           {
-            string temp = c.Name;
-            temp = temp.Substring(7);
-            // In a 4x4 board, textBox17 is the first textBox in the Tile Points tableLayoutPanel.
-            // The path itself is zero-indexed, so subtract dim^2 - 1 to adjust.
-            int i = Convert.ToInt32(temp) - (dim * dim + 1);
-            c.Text = pointBoard[i];
+            c.Text = pointBoard[counter++];
           }
         }
       }
     }
+
+    #endregion
+
+    // Fields.
+    #region Fields
+
+    private const int dim = 4;
+
+    // List<string>s within the List<List<string>> contain strings beginning with the same letter.
+    private List<List<string>> words = new List<List<string>>();
+
+    // Each string has a corresponding List<int>; its path through the board.
+    private List<List<List<int>>> paths = new List<List<List<int>>>();
+
+    // Each string has a corresponding int; its point value.
+    private List<List<int>> points = new List<List<int>>();
+
+    // Necessary as a way to make sorting easier. 
+    private List<WordPointPath> wordPointPaths = new List<WordPointPath>();
+
+    // May or may not be correct.
+    private static Dictionary<char, int> basicTileValues = new Dictionary<char, int>
+                                               {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2}, 
+                                               {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, 
+                                               {'R', 2}, {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};
+
+    #endregion
   }
 }
