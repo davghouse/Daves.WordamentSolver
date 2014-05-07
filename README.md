@@ -17,6 +17,7 @@ The dictionary file 3PrefixedTWL.txt has the words already arranged into their p
 
 Limitations
 -----------
+My dictionary doesn't have 16-letter words.
 
 Wordament has something like 170 banned words, and I don't know all of them. The few I do know I haven't bothered removing from the dictionary. There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores, for instance. I tried using SOWPODS and that was more off than TWL. As it stands right now, the TWL dictionary is pretty close. Were the banned words removed, it might be a proper subset of the Wordament dictionary. I know for sure that SOWPODS is no where near a subset, which is way worse.
 
@@ -34,9 +35,7 @@ Other multi-letter tiles get their individual values summed + 5. 3 or 4 might be
 
 I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards, but I expect they do. I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles. I've only looked into it a little bit.
 
-Other Stuff
+To-do
 -----------
 
-I want to sort the words in some efficient way where the last letter of this word is the first letter of the next word. And a sort, other than alphabetical, that gives me high-value words and then all of their extensions in order. Like GUARD: ED, ING, S all in a row.
-
-It would be cool to make a robot solver.
+I want to sort the words in some efficient way where the last letter of this word is the first letter of the next word. 
