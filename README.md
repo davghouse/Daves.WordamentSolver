@@ -17,7 +17,7 @@ The dictionary file 3PrefixedTWL.txt has the words already arranged into their p
 
 Limitations
 -----------
-My doesn't have 16-letter words.
+My dictionary doesn't have 16-letter words.
 
 Wordament has something like 170 banned words, and I don't know all of them. The few I do know I haven't bothered removing from the dictionary. There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores, for instance. I tried using SOWPODS and that was more off than TWL. As it stands right now, the TWL dictionary is pretty close. Were the banned words removed, it might be a proper subset of the Wordament dictionary. I know for sure that SOWPODS is no where near a subset, which is way worse.
 
