@@ -7,8 +7,8 @@
     <ProjectGuid>{A0A05C7F-63EF-4DFA-AE63-8BAA0F3D79E6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WordamentSolverWinFormsGUI</RootNamespace>
-    <AssemblyName>WordamentSolverWinFormsGUI</AssemblyName>
+    <RootNamespace>WordamentSolver</RootNamespace>
+    <AssemblyName>WordamentSolver</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

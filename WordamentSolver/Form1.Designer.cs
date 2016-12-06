@@ -1,4 +1,4 @@
-﻿﻿namespace WordamentSolverWinFormsGUI
+﻿﻿namespace WordamentSolver
  {
    partial class Form1
    {

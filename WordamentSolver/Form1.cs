@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace WordamentSolverWinFormsGUI
+namespace WordamentSolver
 {
   public partial class Form1 : Form
   {
@@ -213,7 +213,7 @@ namespace WordamentSolverWinFormsGUI
       // Solve, and find point values.
       try
       {
-        words = WordamentRecursiveOOSolver.Solver.RunSolver(stringBoard, paths);
+        words = WordamentSolver.Solver.RunSolver(stringBoard, paths);
         ComputePoints(words, paths, points);
       }
       catch

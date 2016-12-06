@@ -26,7 +26,7 @@ using System.Diagnostics;
 //
 // In the future it might be easier just to remove this (premature?) optimization entirely; depends on new tile types.
 
-namespace WordamentRecursiveOOSolver
+namespace WordamentSolver
 {
   public class Solver
   {
