@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,17 +46,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Contracts\ISolverView.cs" />
+    <Compile Include="Helpers\ColorHelpers.cs" />
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Tries\TrieSearchResult.cs" />
+    <Compile Include="Tries\Trie.cs" />
+    <Compile Include="Tries\TrieNode.cs" />
+    <Compile Include="Models\WordComparer.cs" />
+    <Compile Include="Models\Solution.cs" />
+    <Compile Include="Models\Tile.cs" />
+    <Compile Include="Models\Tiles\BasicTile.cs" />
+    <Compile Include="Models\Tiles\DigramTile.cs" />
+    <Compile Include="Models\Tiles\EitherOrTile.cs" />
+    <Compile Include="Models\Tiles\InvalidTile.cs" />
+    <Compile Include="Models\Tiles\PrefixTile.cs" />
+    <Compile Include="Models\Tiles\SuffixTile.cs" />
+    <Compile Include="Models\Word.cs" />
+    <Compile Include="Models\WordComparers\AlphabetComparer.cs" />
+    <Compile Include="Models\WordComparers\PathLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\PointsOverPathLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\PointsOverWordLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\PointsComparer.cs" />
+    <Compile Include="Models\WordComparers\StartPositionByWordLengthAscendingComparer.cs" />
+    <Compile Include="Models\WordComparers\WordLengthAscendingComparer.cs" />
+    <Compile Include="Models\WordComparers\StartLetterByPointsComparer.cs" />
+    <Compile Include="Models\WordComparers\StartLetterByPointsOverPathLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\StartLetterByPointsOverWordLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\StartLetterByWordLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\StartPositionByPointsComparer.cs" />
+    <Compile Include="Models\WordComparers\StartPositionByPointsOverPathLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\StartPositionByPointsOverWordLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\StartPositionByWordLengthComparer.cs" />
+    <Compile Include="Models\WordComparers\WordLengthComparer.cs" />
+    <Compile Include="Presenters\SolverPresenter.cs" />
+    <Compile Include="Views\SolverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\SolverForm.Designer.cs">
+      <DependentUpon>SolverForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="ApplicationEntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordamentRecursiveOOSolver.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SolverForm.resx">
+      <DependentUpon>SolverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +110,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TWL06Dictionary.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
