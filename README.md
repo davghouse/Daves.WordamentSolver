@@ -5,8 +5,8 @@ wordament-solver
 
 Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.0.0).
 
-![before](/Screenshots/BeforeSolving.PNG)
-![after](/Screenshots/AfterSolving.PNG)
+![before](/Screenshots/BeforeSolving.png)
+![after](/Screenshots/AfterSolving.png)
 
 Implementation
 --------------
