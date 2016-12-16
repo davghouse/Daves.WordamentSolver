@@ -88,7 +88,7 @@ namespace WordamentSolver.Models
         public int? TotalPoints { get; }
         public int? WordsFound { get; }
 
-        public void SortWords(WordComparer wordComparer = null)
+        public void SortWords(WordComparer wordComparer)
             => Array.Sort(_words, wordComparer ?? WordComparer.Points);
     }
 }

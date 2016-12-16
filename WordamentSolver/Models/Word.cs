@@ -47,24 +47,23 @@ namespace WordamentSolver.Models
             }
         }
 
+        // TODO: Maintain this if it becomes possible to make a move to tiles beyond the adjacent ones.
         private double ComputePathLength()
         {
             double pathLength = 0;
             for (int i = 1; i < Path.Count; ++i)
             {
-                int currentPosition = Path[i - 1].Position;
-                int nextPosition = Path[i].Position;
+                Tile currentTile = Path[i - 1];
+                Tile nextTile = Path[i];
 
-                if (currentPosition + 1 == nextPosition
-                    || currentPosition - 1 == nextPosition
-                    || currentPosition + 4 == nextPosition
-                    || currentPosition - 4 == nextPosition)
+                if (currentTile.Row == nextTile.Row
+                    || currentTile.Column == nextTile.Column)
                 {
                     pathLength += 1; // Next is right, left, down, or up from current.
                 }
                 else
                 {
-                    pathLength += 1.41421356237; // Next is diagonal from current.
+                    pathLength += Math.Sqrt(2); // Next is diagonal from current.
                 }
             }
 

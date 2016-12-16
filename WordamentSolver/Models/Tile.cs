@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using WordamentSolver.Models.Tiles;
 
 namespace WordamentSolver.Models
