@@ -32,6 +32,9 @@ As it stands right now, the TWL dictionary is pretty close.
 Were the banned words removed, it might be a proper subset of the Wordament dictionary.
 I know for sure that SOWPODS is no where near a subset, which seems worse.
 
+All that being said, the dictionary is configurable through the exe.config.
+Specify the name of a newline-separated dictionary and put it in the same place as the TWL06 one.
+
 In the game, words have 'common' and 'uncommon' designations.
 I don't know how to create those designations.
 This matters because at least 'common' digram words get a bonus of 5 points, after length multipliers are applied.
