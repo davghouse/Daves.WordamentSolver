@@ -578,7 +578,7 @@
             // 
             this.totalPointsLabel.AutoSize = true;
             this.totalPointsLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPointsLabel.Location = new System.Drawing.Point(435, 409);
+            this.totalPointsLabel.Location = new System.Drawing.Point(433, 409);
             this.totalPointsLabel.Name = "totalPointsLabel";
             this.totalPointsLabel.Size = new System.Drawing.Size(98, 14);
             this.totalPointsLabel.TabIndex = 10;
@@ -588,7 +588,7 @@
             // 
             this.wordsFoundLabel.AutoSize = true;
             this.wordsFoundLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wordsFoundLabel.Location = new System.Drawing.Point(435, 431);
+            this.wordsFoundLabel.Location = new System.Drawing.Point(433, 431);
             this.wordsFoundLabel.Name = "wordsFoundLabel";
             this.wordsFoundLabel.Size = new System.Drawing.Size(91, 14);
             this.wordsFoundLabel.TabIndex = 11;
