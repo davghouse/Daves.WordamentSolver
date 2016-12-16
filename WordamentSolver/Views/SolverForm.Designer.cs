@@ -529,7 +529,7 @@
             // solveWithTilePointsGuessButton
             // 
             this.solveWithTilePointsGuessButton.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solveWithTilePointsGuessButton.Location = new System.Drawing.Point(12, 219);
+            this.solveWithTilePointsGuessButton.Location = new System.Drawing.Point(12, 223);
             this.solveWithTilePointsGuessButton.Name = "solveWithTilePointsGuessButton";
             this.solveWithTilePointsGuessButton.Size = new System.Drawing.Size(180, 24);
             this.solveWithTilePointsGuessButton.TabIndex = 2;
