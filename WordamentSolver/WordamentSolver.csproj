@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ISolverView.cs" />
-    <Compile Include="Helpers\ColorHelpers.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Tries\TrieSearchResult.cs" />
     <Compile Include="Tries\Trie.cs" />

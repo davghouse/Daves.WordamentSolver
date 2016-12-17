@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AssemblyInitializer.cs" />
     <Compile Include="Models\SolutionTests.cs" />
     <Compile Include="Models\WordComparerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using WordamentSolver.Contracts;
+using WordamentSolver.Helpers;
 using WordamentSolver.Models;
 
 namespace WordamentSolver.Presenters
@@ -87,55 +90,41 @@ namespace WordamentSolver.Presenters
         private void View_ClearPath()
             => _view.DisplayPath(null);
 
-        private void View_SaveToFile(string fileName)
+        private void View_SaveToFile(string filePath)
         {
-            using (var writer = new StreamWriter(fileName))
-            {
-                Board board = _view.GetBoard();
-
-                foreach (Tile tile in board.Tiles)
-                {
-                    writer.WriteLine(tile.String);
-                }
-
-                foreach (Tile tile in board.Tiles)
-                {
-                    writer.WriteLine(tile.Points);
-                }
-            }
+            IReadOnlyList<Tile> currentTiles = _view.GetBoard().Tiles;
+            FileHelper.WriteAllLines(filePath, currentTiles.Select(t => t.String)
+                .Concat(currentTiles.Select(t => t.Points?.ToString())));
         }
 
-        private void View_LoadFromFile(string fileName)
+        private void View_LoadFromFile(string filePath)
         {
-            using (var reader = new StreamReader(fileName))
+            string[] lines = FileHelper.ReadAllLines(filePath);
+            if (lines.Length < BoardSize * 2)
+                throw new FormatException($"{filePath} doesn't correctly define a board.");
+
+            string[] tileStrings = new string[BoardSize];
+            for (int i = 0; i < BoardSize; ++i)
             {
-                string[] tileStrings = new string[BoardSize];
-                for (int i = 0; i < BoardSize; ++i)
-                {
-                    tileStrings[i] = reader.ReadLine();
-                }
-
-                int?[] tilePoints = new int?[BoardSize];
-                for (int i = 0; i < BoardSize; ++i)
-                {
-                    int points;
-                    if (int.TryParse(reader.ReadLine(), out points))
-                    {
-                        tilePoints[i] = points;
-                    }
-                    else
-                    {
-                        tilePoints[i] = null;
-                    }
-                }
-
-                _board = new Board(BoardWidth, BoardHeight, p => tileStrings[p], p => tilePoints[p]);
-                _solution = new Solution();
-
-                _view.DisplayBoard(_board);
-                _view.DisplaySolution(_solution);
-                _view.DisplayPath(null);
+                tileStrings[i] = lines[i];
             }
+
+            int?[] tilePoints = new int?[BoardSize];
+            for (int i = 0; i < BoardSize; ++i)
+            {
+                int points;
+                if (int.TryParse(lines[i + BoardSize], out points))
+                {
+                    tilePoints[i] = points;
+                }
+            }
+
+            _board = new Board(BoardWidth, BoardHeight, p => tileStrings[p], p => tilePoints[p]);
+            _solution = new Solution();
+
+            _view.DisplayBoard(_board);
+            _view.DisplaySolution(_solution);
+            _view.DisplayPath(null);
         }
     }
 }

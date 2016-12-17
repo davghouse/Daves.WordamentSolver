@@ -96,7 +96,7 @@ namespace WordamentSolver.Views
 
             if (word != null)
             {
-                Color[] colorGradient = ColorHelpers
+                Color[] colorGradient = ColorHelper
                     .GetColorGradient(Color.LightGreen, Color.Tomato, word.Path.Count)
                     .ToArray();
                 for (int i = 0; i < word.Path.Count; ++i)
