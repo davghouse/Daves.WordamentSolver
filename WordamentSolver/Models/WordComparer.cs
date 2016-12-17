@@ -24,7 +24,7 @@ namespace WordamentSolver.Models
 
         public static readonly IReadOnlyList<WordComparer> All = new[]
         {
-            Alphabet, Points, WordLength, PathLength, PointsOverPathLength, PointsOverWordLength,
+            Alphabet, Points, WordLength, PathLength, PointsOverWordLength, PointsOverPathLength,
             StartPositionByPoints, StartPositionByWordLength, StartPositionByPointsOverWordLength, StartPositionByPointsOverPathLength,
             StartLetterByPoints, StartLetterByWordLength, StartLetterByPointsOverWordLength, StartLetterByPointsOverPathLength,
             WordLengthAscending, StartPositionByWordLengthAscending
