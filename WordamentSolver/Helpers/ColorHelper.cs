@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WordamentSolver.Helpers
 {
-    public static class ColorHelpers
+    public static class ColorHelper
     {
         // 1 step, return start. 2 steps, return start then end. 3 steps:
         // [ | ], return start, then halfway between start and end, then end. And so on...

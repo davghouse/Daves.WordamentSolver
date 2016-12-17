@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using WordamentSolver.Helpers;
+using WordamentSolver.Models;
 using WordamentSolver.Presenters;
 using WordamentSolver.Views;
 
@@ -12,6 +14,16 @@ namespace WordamentSolver
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            try
+            {
+                Solution.SetDictionary(FileHelper.ReadDictionaryFile());
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return;
+            }
 
             var mainForm = new SolverForm();
             var mainFormPresenter = new SolverPresenter(mainForm);

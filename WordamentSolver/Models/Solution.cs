@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
 using System.Linq;
 using WordamentSolver.Tries;
 
@@ -9,22 +7,19 @@ namespace WordamentSolver.Models
 {
     public sealed class Solution
     {
-        private static readonly Trie _dictionary = new Trie();
+        private static Trie _dictionary;
         private readonly Board _board;
         private readonly HashSet<Word> _wordsSet = new HashSet<Word>();
         private readonly Word[] _words = new Word[0];
 
-        static Solution()
+        public static void SetDictionary(IEnumerable<string> dictionary)
         {
-            using (var dictionaryReader = new StreamReader(ConfigurationManager.AppSettings["DictionaryFilePath"]))
+            _dictionary = new Trie();
+            foreach (string word in dictionary)
             {
-                string word;
-                while ((word = dictionaryReader.ReadLine()) != null)
+                if (word.Length > 2)
                 {
-                    if (word.Length > 2)
-                    {
-                        _dictionary.Add(word.ToUpper());
-                    }
+                    _dictionary.Add(word.ToUpper());
                 }
             }
         }
