@@ -1,7 +1,7 @@
 wordament-solver
 ================
 
-Wordament solver that supports an arbitrary number of digram, prefix, suffix, and either/or tiles.
+Wordament solver that handles an arbitrary number of digram, prefix, suffix, and either/or tiles.
 
 Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.3.0).
 
