@@ -2,7 +2,7 @@
 {
     public sealed class WordLengthAscendingComparer : WordComparer
     {
-        public override string Name => "w.l. ascending";
+        public override string Name => "word length ascending";
 
         public override int Compare(Word x, Word y)
             => x.WordLength != y.WordLength

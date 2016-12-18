@@ -2,7 +2,7 @@
 {
     public sealed class PointsOverWordLengthComparer : WordComparer
     {
-        public override string Name => "points / w.l.";
+        public override string Name => "points / word length";
 
         public override int Compare(Word x, Word y)
             => x.PointsOverWordLength != y.PointsOverWordLength

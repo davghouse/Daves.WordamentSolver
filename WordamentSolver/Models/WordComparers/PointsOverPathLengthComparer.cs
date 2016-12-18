@@ -2,7 +2,7 @@
 {
     public sealed class PointsOverPathLengthComparer : WordComparer
     {
-        public override string Name => "points / p.l.";
+        public override string Name => "points / path length";
 
         public override int Compare(Word x, Word y)
             => x.PointsOverPathLength != y.PointsOverPathLength

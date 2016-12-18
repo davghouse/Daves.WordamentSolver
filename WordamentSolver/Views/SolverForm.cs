@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using WordamentSolver.Contracts;
 using WordamentSolver.Helpers;
 using WordamentSolver.Models;
+using WordamentSolver.Properties;
 
 namespace WordamentSolver.Views
 {
@@ -19,6 +20,8 @@ namespace WordamentSolver.Views
         public SolverForm()
         {
             InitializeComponent();
+            Icon = Resources.BigWIcon;
+
             _tileStringTextBoxes = tileStringsTableLayoutPanel
                 .Controls.Cast<TextBox>()
                 .ToArray();
@@ -75,9 +78,16 @@ namespace WordamentSolver.Views
 
         public void DisplaySolution(Solution solution)
         {
+            int longestPointsStringLength = solution.Words
+                .Select(w => w.Points.ToString().Length)
+                .DefaultIfEmpty()
+                .Max();
+
             wordsListBox.Items.Clear();
             wordsListBox.Items.AddRange(solution.Words
-                .Select(w => $"{w.Points} {w.String}")
+                .Select(w => new { PointsString = w.Points.ToString(), WordString = w.String })
+                // Pad with whitespaces to right-align the word strings.
+                .Select(w => $"{w.PointsString}{new string(' ', longestPointsStringLength - w.PointsString.Length)} {w.WordString}")
                 .ToArray());
 
             totalPointsLabel.Text = $"Total points: {solution.TotalPoints}";
@@ -106,9 +116,13 @@ namespace WordamentSolver.Views
                     textBox.Font = new Font(textBox.Font, FontStyle.Bold);
                     textBox.BackColor = colorGradient[i];
                 }
-            }
 
-            tileStringsWordLabel.Text = $"[{word?.String}]";
+                tileStringsWordLabel.Text = $"[{word.String}]";
+            }
+            else
+            {
+                tileStringsWordLabel.Text = null;
+            }
         }
 
         private void orderByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
