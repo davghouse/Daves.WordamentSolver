@@ -2,7 +2,7 @@
 {
     public sealed class StartPositionByWordLengthComparer : WordComparer
     {
-        public override string Name => "start position by: w.l.";
+        public override string Name => "start position by: word length";
 
         public override int Compare(Word x, Word y)
             => x.StartPosition != y.StartPosition

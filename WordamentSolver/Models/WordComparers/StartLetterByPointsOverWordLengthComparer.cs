@@ -2,7 +2,7 @@
 {
     public sealed class StartLetterByPointsOverWordLengthComparer : WordComparer
     {
-        public override string Name => "start letter by: points / w.l.";
+        public override string Name => "start letter by: points / word length";
 
         public override int Compare(Word x, Word y)
             => x.StartLetter != y.StartLetter

@@ -1,4 +1,6 @@
-﻿namespace WordamentSolver.Views
+﻿using WordamentSolver.Properties;
+
+namespace WordamentSolver.Views
 {
     partial class SolverForm
     {
@@ -73,8 +75,6 @@
             this.wordsListBox = new System.Windows.Forms.ListBox();
             this.totalPointsLabel = new System.Windows.Forms.Label();
             this.wordsFoundLabel = new System.Windows.Forms.Label();
-            this.disclaimerLabel = new System.Windows.Forms.Label();
-            this.instructionsLabel = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,20 +91,20 @@
             // tileStringsTextBox1
             // 
             this.tileStringsTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox1.Location = new System.Drawing.Point(3, 3);
             this.tileStringsTextBox1.Name = "tileStringsTextBox1";
-            this.tileStringsTextBox1.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox1.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox1.TabIndex = 0;
             this.tileStringsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox2
             // 
             this.tileStringsTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox2.Location = new System.Drawing.Point(64, 3);
             this.tileStringsTextBox2.Name = "tileStringsTextBox2";
-            this.tileStringsTextBox2.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox2.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox2.TabIndex = 1;
             this.tileStringsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
@@ -144,150 +144,150 @@
             // tileStringsTextBox3
             // 
             this.tileStringsTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox3.Location = new System.Drawing.Point(125, 3);
             this.tileStringsTextBox3.Name = "tileStringsTextBox3";
-            this.tileStringsTextBox3.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox3.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox3.TabIndex = 2;
             this.tileStringsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox4
             // 
             this.tileStringsTextBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox4.Location = new System.Drawing.Point(186, 3);
             this.tileStringsTextBox4.Name = "tileStringsTextBox4";
-            this.tileStringsTextBox4.Size = new System.Drawing.Size(57, 20);
+            this.tileStringsTextBox4.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox4.TabIndex = 3;
             this.tileStringsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox5
             // 
             this.tileStringsTextBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox5.Location = new System.Drawing.Point(3, 36);
             this.tileStringsTextBox5.Name = "tileStringsTextBox5";
-            this.tileStringsTextBox5.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox5.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox5.TabIndex = 4;
             this.tileStringsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox6
             // 
             this.tileStringsTextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox6.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox6.Location = new System.Drawing.Point(64, 36);
             this.tileStringsTextBox6.Name = "tileStringsTextBox6";
-            this.tileStringsTextBox6.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox6.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox6.TabIndex = 5;
             this.tileStringsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox7
             // 
             this.tileStringsTextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox7.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox7.Location = new System.Drawing.Point(125, 36);
             this.tileStringsTextBox7.Name = "tileStringsTextBox7";
-            this.tileStringsTextBox7.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox7.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox7.TabIndex = 6;
             this.tileStringsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox8
             // 
             this.tileStringsTextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox8.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox8.Location = new System.Drawing.Point(186, 36);
             this.tileStringsTextBox8.Name = "tileStringsTextBox8";
-            this.tileStringsTextBox8.Size = new System.Drawing.Size(57, 20);
+            this.tileStringsTextBox8.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox8.TabIndex = 7;
             this.tileStringsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox9
             // 
             this.tileStringsTextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox9.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox9.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox9.Location = new System.Drawing.Point(3, 69);
             this.tileStringsTextBox9.Name = "tileStringsTextBox9";
-            this.tileStringsTextBox9.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox9.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox9.TabIndex = 8;
             this.tileStringsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox10
             // 
             this.tileStringsTextBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox10.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox10.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox10.Location = new System.Drawing.Point(64, 69);
             this.tileStringsTextBox10.Name = "tileStringsTextBox10";
-            this.tileStringsTextBox10.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox10.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox10.TabIndex = 9;
             this.tileStringsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox11
             // 
             this.tileStringsTextBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox11.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox11.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox11.Location = new System.Drawing.Point(125, 69);
             this.tileStringsTextBox11.Name = "tileStringsTextBox11";
-            this.tileStringsTextBox11.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox11.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox11.TabIndex = 10;
             this.tileStringsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox12
             // 
             this.tileStringsTextBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox12.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox12.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox12.Location = new System.Drawing.Point(186, 69);
             this.tileStringsTextBox12.Name = "tileStringsTextBox12";
-            this.tileStringsTextBox12.Size = new System.Drawing.Size(57, 20);
+            this.tileStringsTextBox12.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox12.TabIndex = 11;
             this.tileStringsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox13
             // 
             this.tileStringsTextBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox13.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox13.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox13.Location = new System.Drawing.Point(3, 102);
             this.tileStringsTextBox13.Name = "tileStringsTextBox13";
-            this.tileStringsTextBox13.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox13.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox13.TabIndex = 12;
             this.tileStringsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox14
             // 
             this.tileStringsTextBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox14.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox14.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox14.Location = new System.Drawing.Point(64, 102);
             this.tileStringsTextBox14.Name = "tileStringsTextBox14";
-            this.tileStringsTextBox14.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox14.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox14.TabIndex = 13;
             this.tileStringsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox15
             // 
             this.tileStringsTextBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox15.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox15.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox15.Location = new System.Drawing.Point(125, 102);
             this.tileStringsTextBox15.Name = "tileStringsTextBox15";
-            this.tileStringsTextBox15.Size = new System.Drawing.Size(55, 20);
+            this.tileStringsTextBox15.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox15.TabIndex = 14;
             this.tileStringsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsTextBox16
             // 
             this.tileStringsTextBox16.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tileStringsTextBox16.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsTextBox16.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStringsTextBox16.Location = new System.Drawing.Point(186, 102);
             this.tileStringsTextBox16.Name = "tileStringsTextBox16";
-            this.tileStringsTextBox16.Size = new System.Drawing.Size(57, 20);
+            this.tileStringsTextBox16.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox16.TabIndex = 15;
             this.tileStringsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tileStringsLabel
             // 
             this.tileStringsLabel.AutoSize = true;
-            this.tileStringsLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileStringsLabel.Location = new System.Drawing.Point(9, 80);
+            this.tileStringsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsLabel.Location = new System.Drawing.Point(12, 80);
             this.tileStringsLabel.Name = "tileStringsLabel";
-            this.tileStringsLabel.Size = new System.Drawing.Size(104, 16);
+            this.tileStringsLabel.Size = new System.Drawing.Size(65, 15);
             this.tileStringsLabel.TabIndex = 4;
             this.tileStringsLabel.Text = "Tile Strings";
             // 
@@ -314,7 +314,7 @@
             this.tilePointsTableLayoutPanel.Controls.Add(this.tilePointsTextBox14, 1, 3);
             this.tilePointsTableLayoutPanel.Controls.Add(this.tilePointsTextBox15, 2, 3);
             this.tilePointsTableLayoutPanel.Controls.Add(this.tilePointsTextBox16, 3, 3);
-            this.tilePointsTableLayoutPanel.Location = new System.Drawing.Point(12, 281);
+            this.tilePointsTableLayoutPanel.Location = new System.Drawing.Point(12, 278);
             this.tilePointsTableLayoutPanel.Name = "tilePointsTableLayoutPanel";
             this.tilePointsTableLayoutPanel.RowCount = 4;
             this.tilePointsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -327,223 +327,223 @@
             // tilePointsTextBox1
             // 
             this.tilePointsTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox1.Location = new System.Drawing.Point(3, 3);
             this.tilePointsTextBox1.Name = "tilePointsTextBox1";
-            this.tilePointsTextBox1.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox1.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox1.TabIndex = 0;
             this.tilePointsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox2
             // 
             this.tilePointsTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox2.Location = new System.Drawing.Point(64, 3);
             this.tilePointsTextBox2.Name = "tilePointsTextBox2";
-            this.tilePointsTextBox2.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox2.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox2.TabIndex = 1;
             this.tilePointsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox3
             // 
             this.tilePointsTextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox3.Location = new System.Drawing.Point(125, 3);
             this.tilePointsTextBox3.Name = "tilePointsTextBox3";
-            this.tilePointsTextBox3.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox3.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox3.TabIndex = 2;
             this.tilePointsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox4
             // 
             this.tilePointsTextBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox4.Location = new System.Drawing.Point(186, 3);
             this.tilePointsTextBox4.Name = "tilePointsTextBox4";
-            this.tilePointsTextBox4.Size = new System.Drawing.Size(57, 20);
+            this.tilePointsTextBox4.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox4.TabIndex = 3;
             this.tilePointsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox5
             // 
             this.tilePointsTextBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox5.Location = new System.Drawing.Point(3, 36);
             this.tilePointsTextBox5.Name = "tilePointsTextBox5";
-            this.tilePointsTextBox5.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox5.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox5.TabIndex = 4;
             this.tilePointsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox6
             // 
             this.tilePointsTextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox6.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox6.Location = new System.Drawing.Point(64, 36);
             this.tilePointsTextBox6.Name = "tilePointsTextBox6";
-            this.tilePointsTextBox6.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox6.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox6.TabIndex = 5;
             this.tilePointsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox7
             // 
             this.tilePointsTextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox7.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox7.Location = new System.Drawing.Point(125, 36);
             this.tilePointsTextBox7.Name = "tilePointsTextBox7";
-            this.tilePointsTextBox7.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox7.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox7.TabIndex = 6;
             this.tilePointsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox8
             // 
             this.tilePointsTextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox8.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox8.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox8.Location = new System.Drawing.Point(186, 36);
             this.tilePointsTextBox8.Name = "tilePointsTextBox8";
-            this.tilePointsTextBox8.Size = new System.Drawing.Size(57, 20);
+            this.tilePointsTextBox8.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox8.TabIndex = 7;
             this.tilePointsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox9
             // 
             this.tilePointsTextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox9.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox9.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox9.Location = new System.Drawing.Point(3, 69);
             this.tilePointsTextBox9.Name = "tilePointsTextBox9";
-            this.tilePointsTextBox9.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox9.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox9.TabIndex = 8;
             this.tilePointsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox10
             // 
             this.tilePointsTextBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox10.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox10.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox10.Location = new System.Drawing.Point(64, 69);
             this.tilePointsTextBox10.Name = "tilePointsTextBox10";
-            this.tilePointsTextBox10.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox10.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox10.TabIndex = 9;
             this.tilePointsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox11
             // 
             this.tilePointsTextBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox11.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox11.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox11.Location = new System.Drawing.Point(125, 69);
             this.tilePointsTextBox11.Name = "tilePointsTextBox11";
-            this.tilePointsTextBox11.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox11.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox11.TabIndex = 10;
             this.tilePointsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox12
             // 
             this.tilePointsTextBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox12.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox12.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox12.Location = new System.Drawing.Point(186, 69);
             this.tilePointsTextBox12.Name = "tilePointsTextBox12";
-            this.tilePointsTextBox12.Size = new System.Drawing.Size(57, 20);
+            this.tilePointsTextBox12.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox12.TabIndex = 11;
             this.tilePointsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox13
             // 
             this.tilePointsTextBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox13.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox13.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox13.Location = new System.Drawing.Point(3, 102);
             this.tilePointsTextBox13.Name = "tilePointsTextBox13";
-            this.tilePointsTextBox13.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox13.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox13.TabIndex = 12;
             this.tilePointsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox14
             // 
             this.tilePointsTextBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox14.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox14.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox14.Location = new System.Drawing.Point(64, 102);
             this.tilePointsTextBox14.Name = "tilePointsTextBox14";
-            this.tilePointsTextBox14.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox14.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox14.TabIndex = 13;
             this.tilePointsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox15
             // 
             this.tilePointsTextBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox15.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox15.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox15.Location = new System.Drawing.Point(125, 102);
             this.tilePointsTextBox15.Name = "tilePointsTextBox15";
-            this.tilePointsTextBox15.Size = new System.Drawing.Size(55, 20);
+            this.tilePointsTextBox15.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox15.TabIndex = 14;
             this.tilePointsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsTextBox16
             // 
             this.tilePointsTextBox16.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tilePointsTextBox16.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsTextBox16.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tilePointsTextBox16.Location = new System.Drawing.Point(186, 102);
             this.tilePointsTextBox16.Name = "tilePointsTextBox16";
-            this.tilePointsTextBox16.Size = new System.Drawing.Size(57, 20);
+            this.tilePointsTextBox16.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox16.TabIndex = 15;
             this.tilePointsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
             // tilePointsLabel
             // 
             this.tilePointsLabel.AutoSize = true;
-            this.tilePointsLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tilePointsLabel.Location = new System.Drawing.Point(9, 263);
+            this.tilePointsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePointsLabel.Location = new System.Drawing.Point(12, 263);
             this.tilePointsLabel.Name = "tilePointsLabel";
-            this.tilePointsLabel.Size = new System.Drawing.Size(96, 16);
+            this.tilePointsLabel.Size = new System.Drawing.Size(62, 15);
             this.tilePointsLabel.TabIndex = 6;
             this.tilePointsLabel.Text = "Tile Points";
             // 
             // wordsLabel
             // 
             this.wordsLabel.AutoSize = true;
-            this.wordsLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wordsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wordsLabel.Location = new System.Drawing.Point(307, 30);
             this.wordsLabel.Name = "wordsLabel";
-            this.wordsLabel.Size = new System.Drawing.Size(224, 16);
+            this.wordsLabel.Size = new System.Drawing.Size(41, 15);
             this.wordsLabel.TabIndex = 8;
-            this.wordsLabel.Text = "Words (select to show path)";
+            this.wordsLabel.Text = "Words";
             // 
             // orderByLabel
             // 
             this.orderByLabel.AutoSize = true;
-            this.orderByLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderByLabel.Location = new System.Drawing.Point(9, 30);
+            this.orderByLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.orderByLabel.Location = new System.Drawing.Point(12, 30);
             this.orderByLabel.Name = "orderByLabel";
-            this.orderByLabel.Size = new System.Drawing.Size(80, 16);
+            this.orderByLabel.Size = new System.Drawing.Size(56, 15);
             this.orderByLabel.TabIndex = 2;
             this.orderByLabel.Text = "Order by:";
             // 
             // orderByComboBox
             // 
             this.orderByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.orderByComboBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderByComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderByComboBox.FormattingEnabled = true;
-            this.orderByComboBox.Location = new System.Drawing.Point(12, 48);
+            this.orderByComboBox.Location = new System.Drawing.Point(15, 48);
             this.orderByComboBox.Name = "orderByComboBox";
-            this.orderByComboBox.Size = new System.Drawing.Size(246, 22);
+            this.orderByComboBox.Size = new System.Drawing.Size(240, 23);
             this.orderByComboBox.TabIndex = 0;
             this.orderByComboBox.SelectionChangeCommitted += new System.EventHandler(this.orderByComboBox_SelectionChangeCommitted);
             this.orderByComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderByComboBox_KeyDown);
             // 
             // solveWithTilePointsGuessButton
             // 
-            this.solveWithTilePointsGuessButton.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solveWithTilePointsGuessButton.Location = new System.Drawing.Point(12, 223);
+            this.solveWithTilePointsGuessButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solveWithTilePointsGuessButton.Location = new System.Drawing.Point(15, 225);
             this.solveWithTilePointsGuessButton.Name = "solveWithTilePointsGuessButton";
-            this.solveWithTilePointsGuessButton.Size = new System.Drawing.Size(180, 24);
+            this.solveWithTilePointsGuessButton.Size = new System.Drawing.Size(240, 24);
             this.solveWithTilePointsGuessButton.TabIndex = 2;
-            this.solveWithTilePointsGuessButton.Text = "Solve w/ points guess";
+            this.solveWithTilePointsGuessButton.Text = "Solve with points guess";
             this.solveWithTilePointsGuessButton.UseVisualStyleBackColor = true;
             this.solveWithTilePointsGuessButton.Click += new System.EventHandler(this.solveWithTilePointsGuessButton_Click);
             this.solveWithTilePointsGuessButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.solveWithTilePointsGuessButton_KeyDown);
             // 
             // solveButton
             // 
-            this.solveButton.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solveButton.Location = new System.Drawing.Point(12, 409);
+            this.solveButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solveButton.Location = new System.Drawing.Point(15, 407);
             this.solveButton.Name = "solveButton";
-            this.solveButton.Size = new System.Drawing.Size(180, 24);
+            this.solveButton.Size = new System.Drawing.Size(240, 24);
             this.solveButton.TabIndex = 4;
             this.solveButton.Text = "Solve";
             this.solveButton.UseVisualStyleBackColor = true;
@@ -552,10 +552,10 @@
             // 
             // clearBoardButton
             // 
-            this.clearBoardButton.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBoardButton.Location = new System.Drawing.Point(310, 431);
+            this.clearBoardButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearBoardButton.Location = new System.Drawing.Point(310, 435);
             this.clearBoardButton.Name = "clearBoardButton";
-            this.clearBoardButton.Size = new System.Drawing.Size(119, 21);
+            this.clearBoardButton.Size = new System.Drawing.Size(119, 24);
             this.clearBoardButton.TabIndex = 7;
             this.clearBoardButton.Text = "Clear Board";
             this.clearBoardButton.UseVisualStyleBackColor = true;
@@ -564,12 +564,12 @@
             // 
             // wordsListBox
             // 
-            this.wordsListBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wordsListBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wordsListBox.FormattingEnabled = true;
             this.wordsListBox.ItemHeight = 14;
-            this.wordsListBox.Location = new System.Drawing.Point(310, 48);
+            this.wordsListBox.Location = new System.Drawing.Point(310, 47);
             this.wordsListBox.Name = "wordsListBox";
-            this.wordsListBox.Size = new System.Drawing.Size(246, 340);
+            this.wordsListBox.Size = new System.Drawing.Size(246, 354);
             this.wordsListBox.TabIndex = 5;
             this.wordsListBox.SelectedIndexChanged += new System.EventHandler(this.wordsListBox_SelectedIndexChanged);
             this.wordsListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wordsListBox_KeyDown);
@@ -577,42 +577,22 @@
             // totalPointsLabel
             // 
             this.totalPointsLabel.AutoSize = true;
-            this.totalPointsLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPointsLabel.Location = new System.Drawing.Point(433, 409);
+            this.totalPointsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPointsLabel.Location = new System.Drawing.Point(440, 412);
             this.totalPointsLabel.Name = "totalPointsLabel";
-            this.totalPointsLabel.Size = new System.Drawing.Size(98, 14);
+            this.totalPointsLabel.Size = new System.Drawing.Size(72, 15);
             this.totalPointsLabel.TabIndex = 10;
             this.totalPointsLabel.Text = "Total points:";
             // 
             // wordsFoundLabel
             // 
             this.wordsFoundLabel.AutoSize = true;
-            this.wordsFoundLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wordsFoundLabel.Location = new System.Drawing.Point(433, 431);
+            this.wordsFoundLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wordsFoundLabel.Location = new System.Drawing.Point(433, 440);
             this.wordsFoundLabel.Name = "wordsFoundLabel";
-            this.wordsFoundLabel.Size = new System.Drawing.Size(91, 14);
+            this.wordsFoundLabel.Size = new System.Drawing.Size(79, 15);
             this.wordsFoundLabel.TabIndex = 11;
             this.wordsFoundLabel.Text = "Words found:";
-            // 
-            // disclaimerLabel
-            // 
-            this.disclaimerLabel.AutoSize = true;
-            this.disclaimerLabel.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disclaimerLabel.Location = new System.Drawing.Point(6, 464);
-            this.disclaimerLabel.Name = "disclaimerLabel";
-            this.disclaimerLabel.Size = new System.Drawing.Size(532, 14);
-            this.disclaimerLabel.TabIndex = 12;
-            this.disclaimerLabel.Text = "TWL dictionary, theme and \'common\' digram words => results are approximate.";
-            // 
-            // instructionsLabel
-            // 
-            this.instructionsLabel.AutoSize = true;
-            this.instructionsLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.Location = new System.Drawing.Point(57, 3);
-            this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(512, 17);
-            this.instructionsLabel.TabIndex = 13;
-            this.instructionsLabel.Text = "Space to tab, enter to press buttons, up/down to select words. ";
             // 
             // menuStrip
             // 
@@ -650,10 +630,10 @@
             // 
             // clearPathButton
             // 
-            this.clearPathButton.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearPathButton.Location = new System.Drawing.Point(310, 402);
+            this.clearPathButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearPathButton.Location = new System.Drawing.Point(310, 407);
             this.clearPathButton.Name = "clearPathButton";
-            this.clearPathButton.Size = new System.Drawing.Size(119, 21);
+            this.clearPathButton.Size = new System.Drawing.Size(119, 24);
             this.clearPathButton.TabIndex = 6;
             this.clearPathButton.Text = "Clear Path";
             this.clearPathButton.UseVisualStyleBackColor = true;
@@ -663,12 +643,11 @@
             // tileStringsWordLabel
             // 
             this.tileStringsWordLabel.AutoSize = true;
-            this.tileStringsWordLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileStringsWordLabel.Location = new System.Drawing.Point(120, 80);
+            this.tileStringsWordLabel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStringsWordLabel.Location = new System.Drawing.Point(118, 81);
             this.tileStringsWordLabel.Name = "tileStringsWordLabel";
-            this.tileStringsWordLabel.Size = new System.Drawing.Size(24, 16);
+            this.tileStringsWordLabel.Size = new System.Drawing.Size(0, 14);
             this.tileStringsWordLabel.TabIndex = 16;
-            this.tileStringsWordLabel.Text = "[]";
             // 
             // fileSystemWatcher1
             // 
@@ -679,11 +658,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 483);
+            this.ClientSize = new System.Drawing.Size(570, 474);
             this.Controls.Add(this.tileStringsWordLabel);
             this.Controls.Add(this.clearPathButton);
-            this.Controls.Add(this.instructionsLabel);
-            this.Controls.Add(this.disclaimerLabel);
             this.Controls.Add(this.wordsFoundLabel);
             this.Controls.Add(this.totalPointsLabel);
             this.Controls.Add(this.wordsListBox);
@@ -763,8 +740,6 @@
         private System.Windows.Forms.ListBox wordsListBox;
         private System.Windows.Forms.Label totalPointsLabel;
         private System.Windows.Forms.Label wordsFoundLabel;
-        private System.Windows.Forms.Label disclaimerLabel;
-        private System.Windows.Forms.Label instructionsLabel;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
