@@ -1,6 +1,4 @@
-﻿using WordamentSolver.Properties;
-
-namespace WordamentSolver.Views
+﻿namespace WordamentSolver.Views
 {
     partial class SolverForm
     {
@@ -67,8 +65,8 @@ namespace WordamentSolver.Views
             this.tilePointsTextBox16 = new System.Windows.Forms.TextBox();
             this.tilePointsLabel = new System.Windows.Forms.Label();
             this.wordsLabel = new System.Windows.Forms.Label();
-            this.orderByLabel = new System.Windows.Forms.Label();
-            this.orderByComboBox = new System.Windows.Forms.ComboBox();
+            this.sortByLabel = new System.Windows.Forms.Label();
+            this.sortByComboBox = new System.Windows.Forms.ComboBox();
             this.solveWithTilePointsGuessButton = new System.Windows.Forms.Button();
             this.solveButton = new System.Windows.Forms.Button();
             this.clearBoardButton = new System.Windows.Forms.Button();
@@ -504,27 +502,27 @@ namespace WordamentSolver.Views
             this.wordsLabel.TabIndex = 8;
             this.wordsLabel.Text = "Words";
             // 
-            // orderByLabel
+            // sortByLabel
             // 
-            this.orderByLabel.AutoSize = true;
-            this.orderByLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.orderByLabel.Location = new System.Drawing.Point(12, 30);
-            this.orderByLabel.Name = "orderByLabel";
-            this.orderByLabel.Size = new System.Drawing.Size(56, 15);
-            this.orderByLabel.TabIndex = 2;
-            this.orderByLabel.Text = "Order by:";
+            this.sortByLabel.AutoSize = true;
+            this.sortByLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.sortByLabel.Location = new System.Drawing.Point(12, 30);
+            this.sortByLabel.Name = "sortByLabel";
+            this.sortByLabel.Size = new System.Drawing.Size(47, 15);
+            this.sortByLabel.TabIndex = 2;
+            this.sortByLabel.Text = "Sort by:";
             // 
-            // orderByComboBox
+            // sortByComboBox
             // 
-            this.orderByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.orderByComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderByComboBox.FormattingEnabled = true;
-            this.orderByComboBox.Location = new System.Drawing.Point(15, 48);
-            this.orderByComboBox.Name = "orderByComboBox";
-            this.orderByComboBox.Size = new System.Drawing.Size(240, 23);
-            this.orderByComboBox.TabIndex = 0;
-            this.orderByComboBox.SelectionChangeCommitted += new System.EventHandler(this.orderByComboBox_SelectionChangeCommitted);
-            this.orderByComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.orderByComboBox_KeyDown);
+            this.sortByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sortByComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByComboBox.FormattingEnabled = true;
+            this.sortByComboBox.Location = new System.Drawing.Point(15, 48);
+            this.sortByComboBox.Name = "sortByComboBox";
+            this.sortByComboBox.Size = new System.Drawing.Size(240, 23);
+            this.sortByComboBox.TabIndex = 0;
+            this.sortByComboBox.SelectionChangeCommitted += new System.EventHandler(this.sortByComboBox_SelectionChangeCommitted);
+            this.sortByComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sortByComboBox_KeyDown);
             // 
             // solveWithTilePointsGuessButton
             // 
@@ -667,8 +665,8 @@ namespace WordamentSolver.Views
             this.Controls.Add(this.clearBoardButton);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.solveWithTilePointsGuessButton);
-            this.Controls.Add(this.orderByComboBox);
-            this.Controls.Add(this.orderByLabel);
+            this.Controls.Add(this.sortByComboBox);
+            this.Controls.Add(this.sortByLabel);
             this.Controls.Add(this.wordsLabel);
             this.Controls.Add(this.tilePointsLabel);
             this.Controls.Add(this.tilePointsTableLayoutPanel);
@@ -732,8 +730,8 @@ namespace WordamentSolver.Views
         private System.Windows.Forms.TextBox tilePointsTextBox16;
         private System.Windows.Forms.Label tilePointsLabel;
         private System.Windows.Forms.Label wordsLabel;
-        private System.Windows.Forms.Label orderByLabel;
-        private System.Windows.Forms.ComboBox orderByComboBox;
+        private System.Windows.Forms.Label sortByLabel;
+        private System.Windows.Forms.ComboBox sortByComboBox;
         private System.Windows.Forms.Button solveWithTilePointsGuessButton;
         private System.Windows.Forms.Button solveButton;
         private System.Windows.Forms.Button clearBoardButton;

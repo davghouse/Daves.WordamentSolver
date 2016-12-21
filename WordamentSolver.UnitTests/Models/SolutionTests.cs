@@ -23,11 +23,11 @@ namespace WordamentSolver.UnitTests.Models
         };
 
         [TestMethod]
-        public void VerifySimpleSolution()
+        public void VerifiesSimpleSolution()
         {
             var board = new Board(4, 4, p => _simpleTileStrings[p], p => null);
             board.GuessTilePoints();
-            var solution = new Solution(board, WordComparer.Points);
+            var solution = new Solution(board, WordSorter.Points);
 
             Assert.AreEqual(solution.Words[0].String, "AGLEAM");
             Assert.AreEqual(solution.Words[0].Points, 32);
@@ -40,11 +40,11 @@ namespace WordamentSolver.UnitTests.Models
         }
 
         [TestMethod]
-        public void VerifyComplexSolution()
+        public void VerifiesComplexSolution()
         {
             var board = new Board(4, 4, p => _complexTileStrings[p], p => null);
             board.GuessTilePoints();
-            var solution = new Solution(board, WordComparer.Points);
+            var solution = new Solution(board, WordSorter.Points);
 
             Assert.AreEqual(solution.Words[0].String, "HOUSESAT");
             Assert.AreEqual(solution.Words[0].Points, 360);

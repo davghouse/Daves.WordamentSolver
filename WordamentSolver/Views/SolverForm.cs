@@ -34,7 +34,7 @@ namespace WordamentSolver.Views
         public int BoardHeight => _boardHeight;
         public int BoardSize => BoardWidth * BoardHeight;
 
-        public event Action<int?> OrderByOptionSelectionChanged;
+        public event Action<int?> SortBySelectionChanged;
         public event Action SolveWithTilePointsGuess;
         public event Action Solve;
         public event Action<int?> WordSelectionChanged;
@@ -43,13 +43,13 @@ namespace WordamentSolver.Views
         public event Action<string> SaveToFile;
         public event Action<string> LoadFromFile;
 
-        public void DisplayOrderByOptions(IReadOnlyList<WordComparer> wordComparers, int selecteIndex)
+        public void DisplaySortByOptions(IReadOnlyList<WordSorter> wordSorters, int selecteIndex)
         {
-            orderByComboBox.Items.Clear();
-            orderByComboBox.Items.AddRange(wordComparers
+            sortByComboBox.Items.Clear();
+            sortByComboBox.Items.AddRange(wordSorters
                 .Select(wc => wc.Name)
                 .ToArray());
-            orderByComboBox.SelectedIndex = selecteIndex;
+            sortByComboBox.SelectedIndex = selecteIndex;
         }
 
         public void DisplayBoard(Board board)
@@ -125,8 +125,8 @@ namespace WordamentSolver.Views
             }
         }
 
-        private void orderByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-            => OrderByOptionSelectionChanged(orderByComboBox.SelectedIndex != -1 ? orderByComboBox.SelectedIndex : (int?)null);
+        private void sortByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+            => SortBySelectionChanged(sortByComboBox.SelectedIndex != -1 ? sortByComboBox.SelectedIndex : (int?)null);
 
         private void solveWithTilePointsGuessButton_Click(object sender, EventArgs e)
         {
@@ -210,7 +210,7 @@ namespace WordamentSolver.Views
         private void wordsListBox_KeyDown(object sender, KeyEventArgs e)
             => MapAllowedKeyDownsToTab(e, Keys.Space);
 
-        private void orderByComboBox_KeyDown(object sender, KeyEventArgs e)
+        private void sortByComboBox_KeyDown(object sender, KeyEventArgs e)
             => MapAllowedKeyDownsToTab(e, Keys.Space);
 
         private void solveWithTilePointsGuessButton_KeyDown(object sender, KeyEventArgs e)

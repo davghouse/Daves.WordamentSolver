@@ -9,7 +9,7 @@ namespace WordamentSolver.Contracts
         int BoardWidth { get; }
         int BoardHeight { get; }
 
-        event Action<int?> OrderByOptionSelectionChanged;
+        event Action<int?> SortBySelectionChanged;
         event Action SolveWithTilePointsGuess;
         event Action Solve;
         event Action<int?> WordSelectionChanged;
@@ -18,7 +18,7 @@ namespace WordamentSolver.Contracts
         event Action<string> SaveToFile;
         event Action<string> LoadFromFile;
 
-        void DisplayOrderByOptions(IReadOnlyList<WordComparer> wordComparers, int selectedIndex);
+        void DisplaySortByOptions(IReadOnlyList<WordSorter> wordSorters, int selectedIndex);
         void DisplayBoard(Board board);
         Board GetBoard();
         void DisplaySolution(Solution solution);
