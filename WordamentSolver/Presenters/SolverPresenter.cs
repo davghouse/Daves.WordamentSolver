@@ -12,7 +12,7 @@ namespace WordamentSolver.Presenters
         private readonly ISolverView _view;
         private Board _board;
         private Solution _solution;
-        private WordSorter _selectedWordSorter;
+        private WordSorter _selectedWordSorter = WordSorter.All[0];
 
         public SolverPresenter(ISolverView view)
         {
@@ -20,7 +20,7 @@ namespace WordamentSolver.Presenters
             _board = new Board(BoardWidth, BoardHeight);
             _solution = new Solution();
 
-            _view.DisplaySortByOptions(WordSorter.All, selectedIndex: 1);
+            _view.DisplaySortByOptions(WordSorter.All, selectedIndex: 0);
 
             view.SortBySelectionChanged += View_SortBySelectionChanged;
             view.SolveWithTilePointsGuess += View_SolveWithTilePointsGuess;

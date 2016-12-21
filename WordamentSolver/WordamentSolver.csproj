@@ -53,6 +53,7 @@
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\WordSorters\ApproximateBestPathSorter.cs" />
     <Compile Include="Tries\TrieSearchResult.cs" />
     <Compile Include="Tries\Trie.cs" />
     <Compile Include="Tries\TrieNode.cs" />

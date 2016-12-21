@@ -1,12 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using WordamentSolver.Models;
+using WordamentSolver.Models.WordSorters;
 
 namespace WordamentSolver.UnitTests.Models
 {
     [TestClass]
     public sealed class WordSorterTests
     {
-        private static string[] _tileStrings = new[]
+        private static string[] _tileStrings1 = new[]
         {
             "A", "D/E", "F", "E",
             "G", "O", "P", "R",
@@ -14,10 +16,18 @@ namespace WordamentSolver.UnitTests.Models
             "I", "F", "E", "R"
         };
 
-        [TestMethod]
-        public void VerifyWordSorters()
+        private static string[] _tileStrings2 = new[]
         {
-            var board = new Board(4, 4, p => _tileStrings[p], p => null);
+            "E", "L", "R", "D",
+            "P", "O", "M", "Y",
+            "S", "A", "R", "E",
+            "S", "D", "E", "C"
+        };
+
+        [TestMethod]
+        public void VerifiesWordSorters()
+        {
+            var board = new Board(4, 4, p => _tileStrings1[p], p => null);
             board.GuessTilePoints();
             var solution = new Solution(board);
 
@@ -68,6 +78,28 @@ namespace WordamentSolver.UnitTests.Models
 
             solution.SortWords(WordSorter.StartPositionByWordLengthAscending);
             Assert.AreEqual(solution.Words[118].String, "FETE");
+        }
+
+        [TestMethod]
+        public void ComparesApproximateBestPathSorterAgainstOtherWordSorters()
+        {
+            var board = new Board(4, 4, p => _tileStrings2[p], p => null);
+            board.GuessTilePoints();
+            var solution = new Solution(board);
+            double totalDistanceFromWords = solution.Words.Sum(w => w.PathLength);
+
+            solution.SortWords(WordSorter.ApproximateBestPath);
+            double totalDistanceForApproximateBestPathSorter = totalDistanceFromWords
+                + ApproximateBestPathSorter.CalculateTotalDistanceBetweenWords(solution.Words);
+
+            foreach (WordSorter wordSorter in WordSorter.All
+                .Where(ws => ws != WordSorter.ApproximateBestPath))
+            {
+                solution.SortWords(wordSorter);
+                double totalDistanceForWordSorter = totalDistanceFromWords + ApproximateBestPathSorter.CalculateTotalDistanceBetweenWords(solution.Words);
+
+                Assert.IsTrue(totalDistanceForApproximateBestPathSorter < totalDistanceForWordSorter);
+            }
         }
     }
 }

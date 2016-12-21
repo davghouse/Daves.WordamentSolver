@@ -21,13 +21,14 @@ namespace WordamentSolver.Models
         public static readonly StartLetterByPointsOverPathLengthSorter StartLetterByPointsOverPathLength = new StartLetterByPointsOverPathLengthSorter();
         public static readonly WordLengthAscendingSorter WordLengthAscending = new WordLengthAscendingSorter();
         public static readonly StartPositionByWordLengthAscendingSorter StartPositionByWordLengthAscending = new StartPositionByWordLengthAscendingSorter();
+        public static readonly ApproximateBestPathSorter ApproximateBestPath = new ApproximateBestPathSorter();
 
         public static readonly IReadOnlyList<WordSorter> All = new WordSorter[]
         {
             Points, Alphabet, WordLength, PathLength, PointsOverWordLength, PointsOverPathLength,
             StartPositionByPoints, StartPositionByWordLength, StartPositionByPointsOverWordLength, StartPositionByPointsOverPathLength,
             StartLetterByPoints, StartLetterByWordLength, StartLetterByPointsOverWordLength, StartLetterByPointsOverPathLength,
-            WordLengthAscending, StartPositionByWordLengthAscending
+            WordLengthAscending, StartPositionByWordLengthAscending, ApproximateBestPath
         };
 
         public abstract string Name { get; }

@@ -1,9 +1,9 @@
 wordament-solver
 ================
 
-Wordament solver that handles an arbitrary number of digram, prefix, suffix, and either/or tiles.
+Wordament solver that handles an arbitrary number of special tiles and approximates a best path.
 
-Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.3.0).
+Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.3.1).
 
 ![before](/Screenshots/BeforeSolving.png)
 ![after](/Screenshots/AfterSolving.png)
@@ -55,9 +55,3 @@ Other multi-letter tiles get their individual values summed + 5.
 I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards.
 I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles.
 I've only looked into it a little bit.
-
-To-do
------------
-
-I want to sort the words in some efficient way where the last letter of this word is the first letter of the next word (or adjacent to it, maybe).
-Like find the most efficient way to solve the board, optimizing for finger-movement.

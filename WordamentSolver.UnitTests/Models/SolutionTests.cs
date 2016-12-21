@@ -23,7 +23,7 @@ namespace WordamentSolver.UnitTests.Models
         };
 
         [TestMethod]
-        public void VerifySimpleSolution()
+        public void VerifiesSimpleSolution()
         {
             var board = new Board(4, 4, p => _simpleTileStrings[p], p => null);
             board.GuessTilePoints();
@@ -40,7 +40,7 @@ namespace WordamentSolver.UnitTests.Models
         }
 
         [TestMethod]
-        public void VerifyComplexSolution()
+        public void VerifiesComplexSolution()
         {
             var board = new Board(4, 4, p => _complexTileStrings[p], p => null);
             board.GuessTilePoints();
