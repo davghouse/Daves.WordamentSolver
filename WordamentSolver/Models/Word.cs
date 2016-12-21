@@ -74,9 +74,9 @@ namespace WordamentSolver.Models
             => Equals(other as Word);
 
         public bool Equals(Word other)
-            => String.Equals(other?.String, StringComparison.OrdinalIgnoreCase);
+            => String.Equals(other?.String, StringComparison.Ordinal);
 
         public override int GetHashCode()
-            => StringComparer.OrdinalIgnoreCase.GetHashCode(String);
+            => StringComparer.Ordinal.GetHashCode(String);
     }
 }

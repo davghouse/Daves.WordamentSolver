@@ -12,7 +12,7 @@ namespace WordamentSolver.Presenters
         private readonly ISolverView _view;
         private Board _board;
         private Solution _solution;
-        private WordComparer _selectedWordComparer;
+        private WordSorter _selectedWordSorter;
 
         public SolverPresenter(ISolverView view)
         {
@@ -20,9 +20,9 @@ namespace WordamentSolver.Presenters
             _board = new Board(BoardWidth, BoardHeight);
             _solution = new Solution();
 
-            _view.DisplayOrderByOptions(WordComparer.All, selectedIndex: 1);
+            _view.DisplaySortByOptions(WordSorter.All, selectedIndex: 1);
 
-            view.OrderByOptionSelectionChanged += View_OrderByOptionSelectionChanged;
+            view.SortBySelectionChanged += View_SortBySelectionChanged;
             view.SolveWithTilePointsGuess += View_SolveWithTilePointsGuess;
             view.Solve += View_Solve;
             view.WordSelectionChanged += View_WordSelectionChanged;
@@ -36,19 +36,19 @@ namespace WordamentSolver.Presenters
         private int BoardHeight => _view.BoardHeight;
         private int BoardSize => BoardWidth * BoardHeight;
 
-        private void View_OrderByOptionSelectionChanged(int? selectedIndex)
+        private void View_SortBySelectionChanged(int? selectedIndex)
         {
             if (selectedIndex.HasValue)
             {
-                _selectedWordComparer = WordComparer.All[selectedIndex.Value];
-                _solution.SortWords(_selectedWordComparer);
+                _selectedWordSorter = WordSorter.All[selectedIndex.Value];
+                _solution.SortWords(_selectedWordSorter);
 
                 _view.DisplaySolution(_solution);
                 _view.DisplayPath(null);
             }
             else
             {
-                _selectedWordComparer = null;
+                _selectedWordSorter = null;
             }
         }
 
@@ -56,7 +56,7 @@ namespace WordamentSolver.Presenters
         {
             _board = _view.GetBoard();
             _board.GuessTilePoints();
-            _solution = new Solution(_board, _selectedWordComparer);
+            _solution = new Solution(_board, _selectedWordSorter);
 
             _view.DisplayBoard(_board);
             _view.DisplaySolution(_solution);
@@ -67,7 +67,7 @@ namespace WordamentSolver.Presenters
         {
             _board = _view.GetBoard();
             _board.GuessEmptyTilePoints();
-            _solution = new Solution(_board, _selectedWordComparer);
+            _solution = new Solution(_board, _selectedWordSorter);
 
             _view.DisplayBoard(_board);
             _view.DisplaySolution(_solution);

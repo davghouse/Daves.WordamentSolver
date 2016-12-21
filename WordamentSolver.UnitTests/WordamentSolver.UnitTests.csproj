@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInitializer.cs" />
     <Compile Include="Models\SolutionTests.cs" />
-    <Compile Include="Models\WordComparerTests.cs" />
+    <Compile Include="Models\WordSorterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

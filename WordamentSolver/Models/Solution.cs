@@ -27,7 +27,7 @@ namespace WordamentSolver.Models
         public Solution()
         { }
 
-        public Solution(Board board, WordComparer wordComparer = null)
+        public Solution(Board board, WordSorter wordSorter = null)
         {
             _board = board;
 
@@ -39,7 +39,7 @@ namespace WordamentSolver.Models
             _words = _wordsSet.ToArray();
             TotalPoints = _words.Sum(w => w.Points);
             WordsFound = _words.Length;
-            SortWords(wordComparer);
+            SortWords(wordSorter ?? WordSorter.Points);
         }
 
         // We use the rules governing board movement (not overridable, but may be in the future) to figure out what tiles
@@ -83,7 +83,7 @@ namespace WordamentSolver.Models
         public int? TotalPoints { get; }
         public int? WordsFound { get; }
 
-        public void SortWords(WordComparer wordComparer)
-            => Array.Sort(_words, wordComparer ?? WordComparer.Points);
+        public void SortWords(WordSorter wordSorter)
+            => wordSorter.Sort(_words);
     }
 }
