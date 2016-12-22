@@ -25,7 +25,7 @@ namespace WordamentSolver.UnitTests.Models
         };
 
         [TestMethod]
-        public void VerifiesWordSorters()
+        public void WordSorters()
         {
             var board = new Board(4, 4, p => _tileStrings1[p], p => null);
             board.GuessTilePoints();
@@ -81,7 +81,7 @@ namespace WordamentSolver.UnitTests.Models
         }
 
         [TestMethod]
-        public void ComparesApproximateBestPathSorterAgainstOtherWordSorters()
+        public void ApproximateBestPathSorterFindsABetterPathThanOtherWordSorters()
         {
             var board = new Board(4, 4, p => _tileStrings2[p], p => null);
             board.GuessTilePoints();
