@@ -21,7 +21,7 @@ Everything is made to be generalizable, so it would be easy to extend the soluti
 Any number of special tiles are allowed, and invalid tiles are handled gracefully by simply being ignored.
 
 The best path is a travelling salesman problem where words are vertices and edge lengths are the distances from a word's last tile to another word's first tile (in units of tile length).
-Visting a word adds on a fixed amount of length equal to the word's path length (but you could incorporate this into the edges).
+Visiting a word adds on a fixed amount of length equal to the word's path length (but you could incorporate this into the edges).
 We want to find the shortest path visting each word exactly once.
 I'm just doing a nearest neighbor approximation for now, which seems really good.
 For example, on a board where the total path length from the words themselves was 930, the nearest neighbor path length was 1060, and the path length from sorting by anything else was around 1400.
