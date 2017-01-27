@@ -1,4 +1,4 @@
-wordament-solver
+Wordament Solver
 ================
 
 Wordament solver that handles an arbitrary number of special tiles and approximates a best path.
