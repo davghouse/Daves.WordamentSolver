@@ -3,7 +3,8 @@ Wordament Solver
 
 Wordament solver that handles an arbitrary number of special tiles and approximates a best path.
 
-Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.3.1).
+Latest release [here](https://github.com/davghouse/wordament-solver/releases/tag/v1.3.2).
+Solver library available as a [NuGet Package](https://www.nuget.org/packages/Daves.WordamentSolver/).
 
 ![before](/Screenshots/BeforeSolving.png)
 ![after](/Screenshots/AfterSolving.png)
