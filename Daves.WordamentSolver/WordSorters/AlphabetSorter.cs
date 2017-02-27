@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Daves.WordamentSolver.WordSorters
 {
-    public sealed class AlphabetSorter : WordSorter, IComparer<Word>
+    public class AlphabetSorter : WordSorter, IComparer<Word>
     {
         public override string Name => "alphabet";
 
-        public int Compare(Word x, Word y)
+        public virtual int Compare(Word x, Word y)
             => x.String.CompareTo(y.String);
 
         public override void Sort(Word[] words)

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Daves.WordamentSolver
 {
-    public sealed class Word : IEquatable<Word>
+    public class Word : IEquatable<Word>
     {
         public Word(string @string, IEnumerable<Tile> path)
         {
@@ -17,7 +17,7 @@ namespace Daves.WordamentSolver
         public IReadOnlyList<Tile> Path { get; }
 
         public int Points { get; }
-        private int ComputePoints()
+        protected virtual int ComputePoints()
         {
             int points = Path.Sum(t => t.Points) ?? 0;
 
@@ -33,7 +33,7 @@ namespace Daves.WordamentSolver
         public int StartPosition => Path[0].Position;
         public char StartLetter => String[0];
 
-        private double? _pathLength;
+        protected double? _pathLength;
         public double PathLength
         {
             get
@@ -48,7 +48,7 @@ namespace Daves.WordamentSolver
         }
 
         // TODO: Maintain this if it becomes possible to make a move to tiles beyond the adjacent ones.
-        private double ComputePathLength()
+        protected virtual double ComputePathLength()
         {
             double pathLength = 0;
             for (int i = 1; i < Path.Count; ++i)
@@ -73,7 +73,7 @@ namespace Daves.WordamentSolver
         public override bool Equals(object other)
             => Equals(other as Word);
 
-        public bool Equals(Word other)
+        public virtual bool Equals(Word other)
             => String.Equals(other?.String, StringComparison.Ordinal);
 
         public override int GetHashCode()

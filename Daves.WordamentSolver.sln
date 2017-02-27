@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		LICENSE = LICENSE
 		README.md = README.md
+		SampleBoard.txt = SampleBoard.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{81FFC8CB-344F-4533-A78A-550B0FEBE7E3}"
@@ -18,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots"
 		Screenshots\BeforeSolving.png = Screenshots\BeforeSolving.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daves.WordamentSolver", "Daves.WordamentSolver\Daves.WordamentSolver.csproj", "{90730D42-879C-41EA-BF73-122E7F9420D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daves.WordamentSolver", "Daves.WordamentSolver\Daves.WordamentSolver.csproj", "{90730D42-879C-41EA-BF73-122E7F9420D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daves.WordamentSolver.UnitTests", "Daves.WordamentSolver.UnitTests\Daves.WordamentSolver.UnitTests.csproj", "{120F267E-41A7-4102-87AE-35C35B31600B}"
 EndProject

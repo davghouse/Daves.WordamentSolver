@@ -4,12 +4,12 @@ using Daves.WordamentSolver.Tries;
 
 namespace Daves.WordamentSolver
 {
-    public sealed class Solution
+    public class Solution
     {
-        private static Trie _dictionary;
-        private readonly Board _board;
-        private readonly HashSet<Word> _wordsSet = new HashSet<Word>();
-        private readonly Word[] _words = new Word[0];
+        protected static Trie _dictionary;
+        protected readonly Board _board;
+        protected readonly HashSet<Word> _wordsSet = new HashSet<Word>();
+        protected readonly Word[] _words = new Word[0];
 
         public static void SetDictionary(IEnumerable<string> dictionary)
         {
@@ -50,7 +50,7 @@ namespace Daves.WordamentSolver
         // because it'll contain nothing after this point either, since we're prefixing whatever gets built next. Jumping down the
         // trie with the previous search result isn't a big deal, performance-wise--but stopping when we know the string doesn't prefix
         // anything in the dictionary is. A simple HashSet doesn't get us the latter. A sorted list can, but with an extra log(n) factor.
-        private void SearchUsing(Tile nextTile, List<Tile> pathBeingBuilt, string stringSoFar, TrieSearchResult searchResultSoFar)
+        protected virtual void SearchUsing(Tile nextTile, List<Tile> pathBeingBuilt, string stringSoFar, TrieSearchResult searchResultSoFar)
         {
             pathBeingBuilt.Add(nextTile);
             nextTile.IsTaken = true;
@@ -82,7 +82,7 @@ namespace Daves.WordamentSolver
         public int? TotalPoints { get; }
         public int? WordsFound { get; }
 
-        public void SortWords(WordSorter wordSorter)
+        public virtual void SortWords(WordSorter wordSorter)
             => wordSorter.Sort(_words);
     }
 }

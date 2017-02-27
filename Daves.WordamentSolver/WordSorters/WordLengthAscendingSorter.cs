@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Daves.WordamentSolver.WordSorters
 {
-    public sealed class WordLengthAscendingSorter : WordSorter, IComparer<Word>
+    public class WordLengthAscendingSorter : WordSorter, IComparer<Word>
     {
         public override string Name => "word length ascending";
 
-        public int Compare(Word x, Word y)
+        public virtual int Compare(Word x, Word y)
             => x.WordLength != y.WordLength
             ? x.WordLength.CompareTo(y.WordLength)
             : WordSorter.Alphabet.Compare(x, y);

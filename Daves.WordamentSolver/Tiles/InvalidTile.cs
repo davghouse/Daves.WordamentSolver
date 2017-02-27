@@ -2,7 +2,7 @@
 
 namespace Daves.WordamentSolver.Tiles
 {
-    public sealed class InvalidTile : Tile
+    public class InvalidTile : Tile
     {
         public InvalidTile(int row, int column, int position, string @string, int? points)
             : base(row, column, position, @string, points)

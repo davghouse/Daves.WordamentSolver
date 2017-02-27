@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Daves.WordamentSolver.Tiles
 {
-    public sealed class PrefixTile : Tile
+    public class PrefixTile : Tile
     {
-        private PrefixTile(int row, int column, int position, string @string, int? points)
+        protected PrefixTile(int row, int column, int position, string @string, int? points)
             : base(row, column, position, @string, points)
         { }
 

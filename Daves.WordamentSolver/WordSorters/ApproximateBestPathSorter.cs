@@ -7,7 +7,7 @@ namespace Daves.WordamentSolver.WordSorters
     // graph. The edge length from vertex A to vertex B is the length of A's word plus the distance from the final tile of
     // A's word to the first tile of B's word. The edge length from B to A is the reverse of that. But yeah, travelling salesman
     // problem so I'm just going to use a nearest neighbor approximation.
-    public sealed class ApproximateBestPathSorter : WordSorter
+    public class ApproximateBestPathSorter : WordSorter
     {
         public override string Name
             => "approximate best path";

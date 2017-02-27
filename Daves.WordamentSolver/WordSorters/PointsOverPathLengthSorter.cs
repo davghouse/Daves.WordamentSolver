@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Daves.WordamentSolver.WordSorters
 {
-    public sealed class PointsOverPathLengthSorter : WordSorter, IComparer<Word>
+    public class PointsOverPathLengthSorter : WordSorter, IComparer<Word>
     {
         public override string Name => "points / path length";
 
-        public int Compare(Word x, Word y)
+        public virtual int Compare(Word x, Word y)
             => x.PointsOverPathLength != y.PointsOverPathLength
             ? y.PointsOverPathLength.CompareTo(x.PointsOverPathLength)
             : WordSorter.Alphabet.Compare(x, y);

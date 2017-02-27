@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Daves.WordamentSolver
 {
-    public sealed class Board
+    public class Board
     {
         public Board(int boardWidth, int boardHeight)
             : this(boardWidth, boardHeight, p => null, p => null)
@@ -28,7 +28,7 @@ namespace Daves.WordamentSolver
 
         public int BoardWidth { get; }
         public int BoardHeight { get; }
-        public int BoardSize => BoardWidth * BoardHeight;
+        public virtual int BoardSize => BoardWidth * BoardHeight;
         public IReadOnlyList<Tile> Tiles { get; }
 
         public void GuessTilePoints()
@@ -49,7 +49,7 @@ namespace Daves.WordamentSolver
 
         // So I could name this "GetAdjacentTiles", but you can see how different game modes could allow different moves.
         // The name as is reflects the core game concept, not the specific manifestation of it we see in standard Wordament.
-        public IEnumerable<Tile> GetTilesNoMoreThanOneMoveAway(Tile tile)
+        public virtual IEnumerable<Tile> GetTilesNoMoreThanOneMoveAway(Tile tile)
         {
             for (int r = tile.Row - 1; r <= tile.Row + 1; ++r)
             {

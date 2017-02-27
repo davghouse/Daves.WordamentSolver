@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Daves.WordamentSolver.Tiles
 {
-    public sealed class DigramTile : Tile
+    public class DigramTile : Tile
     {
-        private DigramTile(int row, int column, int position, string @string, int? points)
+        protected DigramTile(int row, int column, int position, string @string, int? points)
             : base(row, column, position, @string, points)
         { }
 

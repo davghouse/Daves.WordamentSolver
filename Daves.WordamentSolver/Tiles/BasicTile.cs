@@ -2,9 +2,9 @@
 
 namespace Daves.WordamentSolver.Tiles
 {
-    public sealed class BasicTile : Tile
+    public class BasicTile : Tile
     {
-        private BasicTile(int row, int column, int position, string @string, int? points)
+        protected BasicTile(int row, int column, int position, string @string, int? points)
             : base(row, column, position, @string, points)
         { }
 

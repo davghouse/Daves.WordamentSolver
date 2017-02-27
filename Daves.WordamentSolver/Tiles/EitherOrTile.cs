@@ -2,9 +2,9 @@
 
 namespace Daves.WordamentSolver.Tiles
 {
-    public sealed class EitherOrTile : Tile
+    public class EitherOrTile : Tile
     {
-        private EitherOrTile(int row, int column, int position, string @string, int? points)
+        protected EitherOrTile(int row, int column, int position, string @string, int? points)
             : base(row, column, position, @string, points)
         { }
 
