@@ -677,7 +677,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "SolverForm";
-            this.Text = "Wordament Solver";
+            this.Text = "Dave\'s Wordament Solver";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             this.tileStringsTableLayoutPanel.ResumeLayout(false);
             this.tileStringsTableLayoutPanel.PerformLayout();
