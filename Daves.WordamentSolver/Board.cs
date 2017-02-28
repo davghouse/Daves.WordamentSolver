@@ -6,29 +6,60 @@ namespace Daves.WordamentSolver
 {
     public class Board
     {
-        public Board(int boardWidth, int boardHeight)
-            : this(boardWidth, boardHeight, p => null, p => null)
-        { }
-
-        public Board(int boardWidth, int boardHeight,
-            Func<int, string> stringSelector,
-            Func<int, int?> pointsSelector)
+        public Board(int boardHeight, int boardWidth,
+            IEnumerable<string> tileStrings,
+            IEnumerable<int?> tilePoints)
         {
-            BoardWidth = boardWidth;
             BoardHeight = boardHeight;
-            Tiles = Enumerable.Range(0, BoardSize)
-                .Select(p => Tile.Create(
-                    row: p / BoardWidth,
-                    column: p % BoardWidth,
-                    position: p,
-                    @string: stringSelector(p),
-                    points: pointsSelector(p)))
+            BoardWidth = boardWidth;
+            Tiles = tileStrings.Zip(tilePoints, (s, p) => new { @string = s, points = p })
+                .Select((a, i) => Tile.Create(
+                    row: i / BoardWidth,
+                    column: i % BoardWidth,
+                    position: i,
+                    @string: a.@string,
+                    points: a.points))
                 .ToArray();
         }
 
-        public int BoardWidth { get; }
+        public Board(int boardHeight, int boardWidth,
+            Func<int, string> stringSelector,
+            Func<int, int?> pointsSelector)
+            : this(boardHeight, boardWidth,
+                  Enumerable.Range(0, boardWidth * boardHeight).Select(stringSelector),
+                  Enumerable.Range(0, boardWidth * boardHeight).Select(pointsSelector))
+        { }
+
+        public Board(int boardHeight, int boardWidth)
+            : this(boardHeight, boardWidth, p => null, p => null)
+        { }
+
+        public Board(string[,] tileStrings, int?[,] tilePoints)
+        {
+            BoardHeight = tileStrings.GetLength(0);
+            BoardWidth = tileStrings.GetLength(1);
+
+            var tiles = new Tile[BoardSize];
+            for (int r = 0; r < BoardHeight; ++r)
+            {
+                for (int c = 0; c < BoardWidth; ++c)
+                {
+                    int position = r * BoardWidth + c;
+                    tiles[position] = Tile.Create(
+                        row: r,
+                        column: c,
+                        position: position,
+                        @string: tileStrings[r, c],
+                        points: tilePoints[r, c]);
+                }
+            }
+
+            Tiles = tiles;
+        }
+
         public int BoardHeight { get; }
-        public virtual int BoardSize => BoardWidth * BoardHeight;
+        public int BoardWidth { get; }
+        public virtual int BoardSize => BoardHeight * BoardWidth;
         public IReadOnlyList<Tile> Tiles { get; }
 
         public void GuessTilePoints()

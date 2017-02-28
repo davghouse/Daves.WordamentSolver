@@ -6,7 +6,7 @@ using Daves.WordamentSolver.UI.Helpers;
 
 namespace Daves.WordamentSolver.UI.Presenters
 {
-    public sealed class SolverPresenter
+    public class SolverPresenter
     {
         private readonly ISolverView _view;
         private Board _board;
@@ -16,7 +16,7 @@ namespace Daves.WordamentSolver.UI.Presenters
         public SolverPresenter(ISolverView view)
         {
             _view = view;
-            _board = new Board(BoardWidth, BoardHeight);
+            _board = new Board(BoardHeight, BoardWidth);
             _solution = new Solution();
 
             _view.DisplaySortByOptions(WordSorter.All, selectedIndex: 0);
@@ -31,8 +31,8 @@ namespace Daves.WordamentSolver.UI.Presenters
             view.LoadFromFile += View_LoadFromFile;
         }
 
-        private int BoardWidth => _view.BoardWidth;
         private int BoardHeight => _view.BoardHeight;
+        private int BoardWidth => _view.BoardWidth;
         private int BoardSize => BoardWidth * BoardHeight;
 
         private void View_SortBySelectionChanged(int? selectedIndex)
@@ -78,7 +78,7 @@ namespace Daves.WordamentSolver.UI.Presenters
 
         private void View_ClearBoard()
         {
-            _board = new Board(BoardWidth, BoardHeight);
+            _board = new Board(BoardHeight, BoardWidth);
             _solution = new Solution();
 
             _view.DisplayBoard(_board);
@@ -118,7 +118,7 @@ namespace Daves.WordamentSolver.UI.Presenters
                 }
             }
 
-            _board = new Board(BoardWidth, BoardHeight, p => tileStrings[p], p => tilePoints[p]);
+            _board = new Board(BoardHeight, BoardWidth, p => tileStrings[p], p => tilePoints[p]);
             _solution = new Solution();
 
             _view.DisplayBoard(_board);

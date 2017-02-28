@@ -5,7 +5,7 @@ using Daves.WordamentSolver.WordSorters;
 namespace Daves.WordamentSolver.UnitTests.WordSorters
 {
     [TestClass]
-    public sealed class WordSorterTests
+    public class WordSorterTests
     {
         private static string[] _tileStrings1 = new[]
         {

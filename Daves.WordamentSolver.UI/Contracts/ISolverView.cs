@@ -5,8 +5,9 @@ namespace Daves.WordamentSolver.UI.Contracts
 {
     public interface ISolverView
     {
-        int BoardWidth { get; }
         int BoardHeight { get; }
+        int BoardWidth { get; }
+        int BoardSize { get; }
 
         event Action<int?> SortBySelectionChanged;
         event Action SolveWithTilePointsGuess;

@@ -3,7 +3,7 @@
 namespace Daves.WordamentSolver.UnitTests
 {
     [TestClass]
-    public sealed class SolutionTests
+    public class SolutionTests
     {
         private static string[] _simpleTileStrings = new[]
         {

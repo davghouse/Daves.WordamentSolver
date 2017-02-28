@@ -29,8 +29,8 @@ namespace Daves.WordamentSolver.UI.Views
                 .ToArray();
         }
 
-        public int BoardWidth => _boardWidth;
         public int BoardHeight => _boardHeight;
+        public int BoardWidth => _boardWidth;
         public int BoardSize => BoardWidth * BoardHeight;
 
         public event Action<int?> SortBySelectionChanged;
@@ -61,7 +61,7 @@ namespace Daves.WordamentSolver.UI.Views
         }
 
         public Board GetBoard()
-            => new Board(BoardWidth, BoardHeight, GetTileString, GetTilePoints); 
+            => new Board(BoardHeight, BoardWidth, GetTileString, GetTilePoints); 
 
         private string GetTileString(int tileStringTextBoxIndex)
             => _tileStringTextBoxes[tileStringTextBoxIndex].Text?.Split('|').LastOrDefault();
