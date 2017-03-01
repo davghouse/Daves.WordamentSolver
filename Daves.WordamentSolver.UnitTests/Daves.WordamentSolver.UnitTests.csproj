@@ -65,7 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TWL06Dictionary.txt">
+    <Content Include="..\Daves.WordamentSolver.UI\TWL06Dictionary.txt">
+      <Link>TWL06Dictionary.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
