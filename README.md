@@ -16,8 +16,8 @@ Implementation
 The solution uses a trie, which offers the big benefit of short-circuiting the recursion/DFS-ing when a string doesn't appear as a prefix in the dictionary (and therefore adding more tiles to it can't produce words).
 As a minor optimization, previous search results are used to skip down into the trie in successive searches (making use of the fact that the strings from the latter are necessarily prefixed by the strings from the former, given how we're traversing the board).
 
-I'm using the Model-View-Presenter pattern but it's a little awkward and I'm not quite sure what to consider a model when nothing is being persisted.
-The view knows nothing about the presenter, it just fires events for the presenter to subscribe to and handle. Everything knows about the model (but as little as possible), which seems okay because I guess it's like a model/view-model hybrid right now.
+I'm using the Model-View-Presenter pattern.
+The view knows nothing about the presenter, it just fires events for the presenter to subscribe to and handle. Everything knows about the model (but as little as possible).
 
 Everything is made to be generalizable, so it would be easy to extend the solution to support new tile types, different board sizes (as long as they're rectangular), and different allowed moves (like only diagonals, or weird jumps).
 Any number of special tiles are allowed, and invalid tiles are handled gracefully by simply being ignored.
