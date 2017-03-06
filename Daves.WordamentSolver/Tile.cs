@@ -14,19 +14,11 @@ namespace Daves.WordamentSolver
             Points = points;
         }
 
-        public static Tile Create(int row, int column, int position, string @string, int? points)
-            => BasicTile.TryCreate(row, column, position, @string, points)
-            ?? DigramTile.TryCreate(row, column, position, @string, points)
-            ?? PrefixTile.TryCreate(row, column, position, @string, points)
-            ?? SuffixTile.TryCreate(row, column, position, @string, points)
-            ?? EitherOrTile.TryCreate(row, column, position, @string, points)
-            ?? (Tile)new InvalidTile(row, column, position, @string, points);
-
         public int Row { get; }
         public int Column { get; }
         public int Position { get; }
         public string String { get; }
-        public int? Points { get; set; }
+        public virtual int? Points { get; set; }
 
         public abstract void GuessPoints();
 

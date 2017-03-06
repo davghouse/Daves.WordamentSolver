@@ -11,7 +11,8 @@
     <RepositoryUrl>https://github.com/davghouse/Daves.WordamentSolver.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wordament, solver, trie, boggle, board</PackageTags>
-    <PackageReleaseNotes>1.1.0: More flexible Board constructors</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <PackageReleaseNotes>1.2.0: Better Board extensibility
+1.1.0: More flexible Board constructors</PackageReleaseNotes>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 </Project>

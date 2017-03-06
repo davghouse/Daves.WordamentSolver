@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daves.WordamentSolver.Tiles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,9 @@ namespace Daves.WordamentSolver
 {
     public class Board
     {
+        protected Board()
+        { }
+
         public Board(int boardHeight, int boardWidth,
             IEnumerable<string> tileStrings,
             IEnumerable<int?> tilePoints)
@@ -13,7 +17,7 @@ namespace Daves.WordamentSolver
             BoardHeight = boardHeight;
             BoardWidth = boardWidth;
             Tiles = tileStrings.Zip(tilePoints, (s, p) => new { @string = s, points = p })
-                .Select((a, i) => Tile.Create(
+                .Select((a, i) => CreateTile(
                     row: i / BoardWidth,
                     column: i % BoardWidth,
                     position: i,
@@ -45,7 +49,7 @@ namespace Daves.WordamentSolver
                 for (int c = 0; c < BoardWidth; ++c)
                 {
                     int position = r * BoardWidth + c;
-                    tiles[position] = Tile.Create(
+                    tiles[position] = CreateTile(
                         row: r,
                         column: c,
                         position: position,
@@ -57,10 +61,18 @@ namespace Daves.WordamentSolver
             Tiles = tiles;
         }
 
-        public int BoardHeight { get; }
-        public int BoardWidth { get; }
-        public virtual int BoardSize => BoardHeight * BoardWidth;
-        public IReadOnlyList<Tile> Tiles { get; }
+        public virtual int BoardHeight { get; protected set; }
+        public virtual int BoardWidth { get; protected set; }
+        public int BoardSize => BoardHeight * BoardWidth;
+        public virtual IReadOnlyList<Tile> Tiles { get; protected set; }
+
+        public virtual Tile CreateTile(int row, int column, int position, string @string, int? points)
+            => BasicTile.TryCreate(row, column, position, @string, points)
+            ?? DigramTile.TryCreate(row, column, position, @string, points)
+            ?? PrefixTile.TryCreate(row, column, position, @string, points)
+            ?? SuffixTile.TryCreate(row, column, position, @string, points)
+            ?? EitherOrTile.TryCreate(row, column, position, @string, points)
+            ?? (Tile)new InvalidTile(row, column, position, @string, points);
 
         public void GuessTilePoints()
         {
@@ -76,6 +88,14 @@ namespace Daves.WordamentSolver
             {
                 tile.GuessPoints();
             }
+        }
+
+        public static int? GuessTilePoints(string @string)
+        {
+            var tile = new Board().CreateTile(0, 0, 0, @string, null);
+            tile.GuessPoints();
+
+            return tile.Points;
         }
 
         // So I could name this "GetAdjacentTiles", but you can see how different game modes could allow different moves.
