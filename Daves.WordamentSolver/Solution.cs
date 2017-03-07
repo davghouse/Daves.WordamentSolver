@@ -38,7 +38,11 @@ namespace Daves.WordamentSolver
             _words = _wordsSet.ToArray();
             TotalPoints = _words.Sum(w => w.Points);
             WordsFound = _words.Length;
-            SortWords(wordSorter ?? WordSorter.Points);
+
+            if (wordSorter != null)
+            {
+                SortWords(wordSorter);
+            }
         }
 
         // We use the rules governing board movement (not overridable, but may be in the future) to figure out what tiles
@@ -79,8 +83,8 @@ namespace Daves.WordamentSolver
         }
 
         public IReadOnlyList<Word> Words => _words;
-        public int? TotalPoints { get; }
-        public int? WordsFound { get; }
+        public int TotalPoints { get; }
+        public int WordsFound { get; }
 
         public virtual void SortWords(WordSorter wordSorter)
             => wordSorter.Sort(_words);
