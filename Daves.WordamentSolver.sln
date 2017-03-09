@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26206.0
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daves.WordamentSolver.UI", "Daves.WordamentSolver.UI\Daves.WordamentSolver.UI.csproj", "{A0A05C7F-63EF-4DFA-AE63-8BAA0F3D79E6}"
 EndProject
@@ -47,16 +47,16 @@ Global
 		{A0A05C7F-63EF-4DFA-AE63-8BAA0F3D79E6}.Release|x86.Build.0 = Release|Any CPU
 		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x64.ActiveCfg = Debug|x64
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x64.Build.0 = Debug|x64
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x86.ActiveCfg = Debug|x86
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x86.Build.0 = Debug|x86
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x64.Build.0 = Debug|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Debug|x86.Build.0 = Debug|Any CPU
 		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x64.ActiveCfg = Release|x64
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x64.Build.0 = Release|x64
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x86.ActiveCfg = Release|x86
-		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x86.Build.0 = Release|x86
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x64.ActiveCfg = Release|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x64.Build.0 = Release|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x86.ActiveCfg = Release|Any CPU
+		{90730D42-879C-41EA-BF73-122E7F9420D8}.Release|x86.Build.0 = Release|Any CPU
 		{120F267E-41A7-4102-87AE-35C35B31600B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{120F267E-41A7-4102-87AE-35C35B31600B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120F267E-41A7-4102-87AE-35C35B31600B}.Debug|x64.ActiveCfg = Debug|Any CPU

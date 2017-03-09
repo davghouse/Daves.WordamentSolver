@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Daves.WordamentSolver.Tries;
 
 namespace Daves.WordamentSolver
 {
-    public class Solution
+    public class Solution : IReadOnlyList<Word>
     {
         protected static Trie _dictionary;
         protected readonly Board _board;
@@ -88,5 +89,10 @@ namespace Daves.WordamentSolver
 
         public virtual void SortWords(WordSorter wordSorter)
             => wordSorter.Sort(_words);
+
+        Word IReadOnlyList<Word>.this[int index] => Words[index];
+        int IReadOnlyCollection<Word>.Count => WordsFound;
+        IEnumerator<Word> IEnumerable<Word>.GetEnumerator() => Words.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Words).GetEnumerator();
     }
 }

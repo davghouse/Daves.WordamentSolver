@@ -78,5 +78,8 @@ namespace Daves.WordamentSolver
 
         public override int GetHashCode()
             => StringComparer.Ordinal.GetHashCode(String);
+
+        public override string ToString()
+            => $"{Points}\t{String.ToLower()}";
     }
 }

@@ -11,9 +11,10 @@
     <RepositoryUrl>https://github.com/davghouse/Daves.WordamentSolver.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wordament, solver, trie, boggle, board</PackageTags>
-    <PackageReleaseNotes>1.3.0: Solution tweaks
+    <PackageReleaseNotes>1.4.0: Implement IReadOnlyList/ToString for convenience
+1.3.0: Solution tweaks
 1.2.0: Better Board extensibility
 1.1.0: More flexible Board constructors</PackageReleaseNotes>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
   </PropertyGroup>
 </Project>
