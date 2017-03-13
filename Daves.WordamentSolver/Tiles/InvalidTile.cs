@@ -4,8 +4,9 @@ namespace Daves.WordamentSolver.Tiles
 {
     public class InvalidTile : Tile
     {
-        public InvalidTile(int row, int column, int position, string @string, int? points)
-            : base(row, column, position, @string, points)
+        public InvalidTile(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+            : base(row, column, position, @string, points, basicTileValues)
         { }
 
         public override void GuessPoints()

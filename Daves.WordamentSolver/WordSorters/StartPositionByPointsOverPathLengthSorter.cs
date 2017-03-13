@@ -8,8 +8,8 @@ namespace Daves.WordamentSolver.WordSorters
         public override string Name => "start position by: points / path length";
 
         public virtual int Compare(Word x, Word y)
-            => x.StartPosition != y.StartPosition
-            ? x.StartPosition.CompareTo(y.StartPosition)
+            => x.BestPathStartPosition != y.BestPathStartPosition
+            ? x.BestPathStartPosition.CompareTo(y.BestPathStartPosition)
             : WordSorter.PointsOverPathLength.Compare(x, y);
 
         public override void Sort(Word[] words)

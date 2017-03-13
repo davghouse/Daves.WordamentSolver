@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Daves.WordamentSolver.UnitTests
 {
     [TestClass]
     public class SolutionTests
     {
-        private static string[] _simpleTileStrings = new[]
+        public static IReadOnlyList<string> BasicTileStrings = new[]
         {
             "A", "B", "E", "F",
             "G", "K", "U", "O",
@@ -13,7 +15,7 @@ namespace Daves.WordamentSolver.UnitTests
             "R", "A", "F", "O"
         };
 
-        private static string[] _complexTileStrings = new[]
+        public static IReadOnlyList<string> ComplexTileStrings = new[]
         {
             "-ING", "I/S", "E", "R/P",
             "REA-", "D/E", "Y/U", "FE-",
@@ -21,38 +23,89 @@ namespace Daves.WordamentSolver.UnitTests
             "R/T", "A/T", "H", "O/B"
         };
 
-        [TestMethod]
-        public void SimpleSolution()
+        public static IReadOnlyList<string> PathMultiplicityTileStrings = new[]
         {
-            var board = new Board(4, 4, p => _simpleTileStrings[p], p => null);
+            "P/N", "A", "P/n",
+            "a",   "a", "a",
+            "p/n", "A/q", "p/N",
+        };
+
+        [TestMethod]
+        public void BasicSolution()
+        {
+            var board = new Board(4, 4, p => BasicTileStrings[p], p => null);
             board.GuessTilePoints();
             var solution = new Solution(board, WordSorter.Points);
 
-            Assert.AreEqual(solution.Words[0].String, "AGLEAM");
-            Assert.AreEqual(solution.Words[0].Points, 32);
-            Assert.AreEqual(solution.Words[4].String, "BAKER");
-            Assert.AreEqual(solution.Words[4].Points, 24);
-            Assert.AreEqual(solution.Words[109].String, "ERA");
-            Assert.AreEqual(solution.Words[109].Points, 5);
-            Assert.AreEqual(solution.TotalPoints, 1319);
-            Assert.AreEqual(solution.WordsFound, 110);
+            Assert.AreEqual("AGLEAM", solution.Words[0].String);
+            Assert.AreEqual(32, solution.Words[0].BestPathPoints);
+            Assert.AreEqual("BAKER", solution.Words[4].String);
+            Assert.AreEqual(24, solution.Words[4].BestPathPoints);
+            Assert.AreEqual("ERA", solution.Words[109].String);
+            Assert.AreEqual(5, solution.Words[109].BestPathPoints);
+            Assert.AreEqual(1319, solution.TotalPoints);
+            Assert.AreEqual(110, solution.TotalWords);
         }
 
         [TestMethod]
         public void ComplexSolution()
         {
-            var board = new Board(4, 4, p => _complexTileStrings[p], p => null);
+            var board = new Board(4, 4, p => ComplexTileStrings[p], p => null);
             board.GuessTilePoints();
             var solution = new Solution(board, WordSorter.Points);
 
-            Assert.AreEqual(solution.Words[0].String, "HOUSESAT");
-            Assert.AreEqual(solution.Words[0].Points, 360);
-            Assert.AreEqual(solution.Words[4].String, "RASURES");
-            Assert.AreEqual(solution.Words[4].Points, 242);
-            Assert.AreEqual(solution.Words[8].String, "STOURES");
-            Assert.AreEqual(solution.Words[8].Points, 242);
-            Assert.AreEqual(solution.TotalPoints, 61847);
-            Assert.AreEqual(solution.WordsFound, 618);
+            Assert.AreEqual("HOUSESAT", solution.Words[0].String);
+            Assert.AreEqual(360, solution.Words[0].BestPathPoints);
+            Assert.AreEqual("REHOUSE", solution.Words[4].String);
+            Assert.AreEqual(248, solution.Words[4].BestPathPoints);
+            Assert.AreEqual("RESUMES", solution.Words[8].String);
+            Assert.AreEqual(242, solution.Words[8].BestPathPoints);
+            Assert.AreEqual(63353, solution.TotalPoints);
+            Assert.AreEqual(618, solution.TotalWords);
+
+            solution.TryGetWord("REHOUSE", out Word word);
+            Assert.AreEqual(2, word.Paths.Count);
+            Assert.AreEqual(board.Tiles[5], word.BestPath.Last());
+            Assert.AreEqual(board.Tiles[2], word.Paths.Single(p => p != word.BestPath).Last());
+        }
+
+        [TestMethod]
+        public void PathMultiplicitySolution()
+        {
+            var board = new Board(3, 3, p => PathMultiplicityTileStrings[p], p => null);
+            board.GuessTilePoints();
+            var solution = new Solution(board, WordSorter.Points);
+
+            solution.TryGetWord("pan", out Word word);
+            Assert.AreEqual(20, word.Paths.Count);
+            solution.TryGetWord("PAN", out word);
+            Assert.AreEqual(20, word.Paths.Count);
+            solution.TryGetWord("PaN", out word);
+            Assert.AreEqual(20, word.Paths.Count);
+
+            solution.TryGetPath(new[] { board.Tiles[6], board.Tiles[7], board.Tiles[8] }, out Path path);
+            Assert.AreEqual(path, word.BestPath);
+            Assert.AreEqual(4, path.Words.Count);
+
+            solution.TryGetWord("nap", out word);
+            Assert.AreEqual(20, word.Paths.Count);
+            solution.TryGetWord("nan", out word);
+            Assert.AreEqual(20, word.Paths.Count);
+            solution.TryGetWord("PAP", out word);
+            Assert.AreEqual(20, word.Paths.Count);
+
+            Assert.IsTrue(solution.ContainsWord("papa"));
+            Assert.IsFalse(solution.ContainsWord("pappa"));
+            Assert.IsTrue(solution.ContainsPath(new[] { board.Tiles[0], board.Tiles[1], board.Tiles[2] }));
+            Assert.IsFalse(solution.ContainsPath(new[] { board.Tiles[3], board.Tiles[4], board.Tiles[5] }));
+
+            foreach (var w in solution.Words)
+            {
+                Assert.AreEqual(w.BestPathPoints, w.Paths.Select(p => w.GetPoints(p)).Max());
+            }
+
+            Assert.AreEqual(530, solution.TotalPoints);
+            Assert.AreEqual(9, solution.TotalWords);
         }
     }
 }

@@ -6,21 +6,27 @@ namespace Daves.WordamentSolver.Tiles
 {
     public class PrefixTile : Tile
     {
-        protected PrefixTile(int row, int column, int position, string @string, int? points)
-            : base(row, column, position, @string, points)
+        protected PrefixTile(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+            : base(row, column, position, @string, points, basicTileValues)
         { }
 
-        public static PrefixTile TryCreate(int row, int column, int position, string @string, int? points)
-            => @string != null
-            && @string.Length >= 3
-            && @string.Take(@string.Length - 1).All(c => char.IsUpper(c))
-            && @string[@string.Length - 1] == '-'
-            ? new PrefixTile(row, column, position, @string, points) : null;
+        public static PrefixTile TryCreate(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+        {
+            basicTileValues = basicTileValues ?? Board.EnglishBasicTileValues;
+
+            return @string != null
+                && @string.Length >= 3
+                && @string.Take(@string.Length - 1).All(basicTileValues.ContainsKey)
+                && @string[@string.Length - 1] == '-'
+                ? new PrefixTile(row, column, position, @string, points, basicTileValues) : null;
+        }
 
         public string Letters => String.Substring(0, String.Length - 1);
 
         public override void GuessPoints()
-            => Points = Letters.Sum(c => BasicTileValues[c]) + 5;
+            => Points = Letters.Sum(c => _basicTilesValues[c]) + 5;
 
         public override bool CanExtend(IReadOnlyList<Tile> path)
             => path.Count == 0;

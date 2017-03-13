@@ -8,8 +8,8 @@ namespace Daves.WordamentSolver.WordSorters
         public override string Name => "word length ascending";
 
         public virtual int Compare(Word x, Word y)
-            => x.WordLength != y.WordLength
-            ? x.WordLength.CompareTo(y.WordLength)
+            => x.Length != y.Length
+            ? x.Length.CompareTo(y.Length)
             : WordSorter.Alphabet.Compare(x, y);
 
         public override void Sort(Word[] words)

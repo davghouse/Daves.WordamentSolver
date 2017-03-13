@@ -1,4 +1,5 @@
-﻿using Daves.WordamentSolver.Tiles;
+﻿using Daves.WordamentSolver.EqualityComparers;
+using Daves.WordamentSolver.Tiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,17 @@ namespace Daves.WordamentSolver
 {
     public class Board
     {
-        protected Board()
-        { }
+        protected readonly IReadOnlyDictionary<char, int> _basicTilesValues;
 
         public Board(int boardHeight, int boardWidth,
             IEnumerable<string> tileStrings,
-            IEnumerable<int?> tilePoints)
+            IEnumerable<int?> tilePoints,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
         {
             BoardHeight = boardHeight;
             BoardWidth = boardWidth;
+            _basicTilesValues = basicTileValues ?? EnglishBasicTileValues;
+
             Tiles = tileStrings.Zip(tilePoints, (s, p) => new { @string = s, points = p })
                 .Select((a, i) => CreateTile(
                     row: i / BoardWidth,
@@ -27,21 +30,26 @@ namespace Daves.WordamentSolver
         }
 
         public Board(int boardHeight, int boardWidth,
-            Func<int, string> stringSelector,
-            Func<int, int?> pointsSelector)
+            Func<int, string> tileStringSelector,
+            Func<int, int?> tilePointsSelector,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
             : this(boardHeight, boardWidth,
-                  Enumerable.Range(0, boardWidth * boardHeight).Select(stringSelector),
-                  Enumerable.Range(0, boardWidth * boardHeight).Select(pointsSelector))
+                  Enumerable.Range(0, boardWidth * boardHeight).Select(tileStringSelector),
+                  Enumerable.Range(0, boardWidth * boardHeight).Select(tilePointsSelector),
+                  basicTileValues)
         { }
 
-        public Board(int boardHeight, int boardWidth)
-            : this(boardHeight, boardWidth, p => null, p => null)
+        public Board(int boardHeight, int boardWidth,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+            : this(boardHeight, boardWidth, p => null, p => null, basicTileValues)
         { }
 
-        public Board(string[,] tileStrings, int?[,] tilePoints)
+        public Board(string[,] tileStrings, int?[,] tilePoints,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
         {
             BoardHeight = tileStrings.GetLength(0);
             BoardWidth = tileStrings.GetLength(1);
+            _basicTilesValues = basicTileValues ?? EnglishBasicTileValues;
 
             var tiles = new Tile[BoardSize];
             for (int r = 0; r < BoardHeight; ++r)
@@ -61,18 +69,18 @@ namespace Daves.WordamentSolver
             Tiles = tiles;
         }
 
-        public virtual int BoardHeight { get; protected set; }
-        public virtual int BoardWidth { get; protected set; }
+        public int BoardHeight { get; }
+        public int BoardWidth { get; }
         public int BoardSize => BoardHeight * BoardWidth;
         public virtual IReadOnlyList<Tile> Tiles { get; protected set; }
 
         public virtual Tile CreateTile(int row, int column, int position, string @string, int? points)
-            => BasicTile.TryCreate(row, column, position, @string, points)
-            ?? DigramTile.TryCreate(row, column, position, @string, points)
-            ?? PrefixTile.TryCreate(row, column, position, @string, points)
-            ?? SuffixTile.TryCreate(row, column, position, @string, points)
-            ?? EitherOrTile.TryCreate(row, column, position, @string, points)
-            ?? (Tile)new InvalidTile(row, column, position, @string, points);
+            => BasicTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
+            ?? DigramTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
+            ?? PrefixTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
+            ?? SuffixTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
+            ?? EitherOrTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
+            ?? (Tile)new InvalidTile(row, column, position, @string, points, _basicTilesValues);
 
         public void GuessTilePoints()
         {
@@ -90,9 +98,10 @@ namespace Daves.WordamentSolver
             }
         }
 
-        public static int? GuessTilePoints(string @string)
+        public static int? GuessTilePoints(string @string,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
         {
-            var tile = new Board().CreateTile(0, 0, 0, @string, null);
+            var tile = new Board(0, 0, basicTileValues).CreateTile(0, 0, 0, @string, null);
             tile.GuessPoints();
 
             return tile.Points;
@@ -114,5 +123,10 @@ namespace Daves.WordamentSolver
                 }
             }
         }
+
+        public static readonly IReadOnlyDictionary<char, int> EnglishBasicTileValues = new Dictionary<char, int>(new CaseInsensitiveCharEqualityComparer())
+           {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2},
+            {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, {'R', 2},
+            {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};
     }
 }

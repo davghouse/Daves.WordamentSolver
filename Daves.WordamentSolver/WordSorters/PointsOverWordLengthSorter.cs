@@ -8,8 +8,8 @@ namespace Daves.WordamentSolver.WordSorters
         public override string Name => "points / word length";
 
         public virtual int Compare(Word x, Word y)
-            => x.PointsOverWordLength != y.PointsOverWordLength
-            ? y.PointsOverWordLength.CompareTo(x.PointsOverWordLength)
+            => x.BestPathPointsOverWordLength != y.BestPathPointsOverWordLength
+            ? y.BestPathPointsOverWordLength.CompareTo(x.BestPathPointsOverWordLength)
             : WordSorter.Alphabet.Compare(x, y);
 
         public override void Sort(Word[] words)

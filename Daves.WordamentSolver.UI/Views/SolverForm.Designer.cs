@@ -94,7 +94,7 @@
             this.tileStringsTextBox1.Name = "tileStringsTextBox1";
             this.tileStringsTextBox1.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox1.TabIndex = 0;
-            this.tileStringsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox2
             // 
@@ -104,7 +104,7 @@
             this.tileStringsTextBox2.Name = "tileStringsTextBox2";
             this.tileStringsTextBox2.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox2.TabIndex = 1;
-            this.tileStringsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTableLayoutPanel
             // 
@@ -147,7 +147,7 @@
             this.tileStringsTextBox3.Name = "tileStringsTextBox3";
             this.tileStringsTextBox3.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox3.TabIndex = 2;
-            this.tileStringsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox4
             // 
@@ -157,7 +157,7 @@
             this.tileStringsTextBox4.Name = "tileStringsTextBox4";
             this.tileStringsTextBox4.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox4.TabIndex = 3;
-            this.tileStringsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox5
             // 
@@ -167,7 +167,7 @@
             this.tileStringsTextBox5.Name = "tileStringsTextBox5";
             this.tileStringsTextBox5.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox5.TabIndex = 4;
-            this.tileStringsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox6
             // 
@@ -177,7 +177,7 @@
             this.tileStringsTextBox6.Name = "tileStringsTextBox6";
             this.tileStringsTextBox6.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox6.TabIndex = 5;
-            this.tileStringsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox7
             // 
@@ -187,7 +187,7 @@
             this.tileStringsTextBox7.Name = "tileStringsTextBox7";
             this.tileStringsTextBox7.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox7.TabIndex = 6;
-            this.tileStringsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox8
             // 
@@ -197,7 +197,7 @@
             this.tileStringsTextBox8.Name = "tileStringsTextBox8";
             this.tileStringsTextBox8.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox8.TabIndex = 7;
-            this.tileStringsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox9
             // 
@@ -207,7 +207,7 @@
             this.tileStringsTextBox9.Name = "tileStringsTextBox9";
             this.tileStringsTextBox9.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox9.TabIndex = 8;
-            this.tileStringsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox10
             // 
@@ -217,7 +217,7 @@
             this.tileStringsTextBox10.Name = "tileStringsTextBox10";
             this.tileStringsTextBox10.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox10.TabIndex = 9;
-            this.tileStringsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox11
             // 
@@ -227,7 +227,7 @@
             this.tileStringsTextBox11.Name = "tileStringsTextBox11";
             this.tileStringsTextBox11.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox11.TabIndex = 10;
-            this.tileStringsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox12
             // 
@@ -237,7 +237,7 @@
             this.tileStringsTextBox12.Name = "tileStringsTextBox12";
             this.tileStringsTextBox12.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox12.TabIndex = 11;
-            this.tileStringsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox13
             // 
@@ -247,7 +247,7 @@
             this.tileStringsTextBox13.Name = "tileStringsTextBox13";
             this.tileStringsTextBox13.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox13.TabIndex = 12;
-            this.tileStringsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox14
             // 
@@ -257,7 +257,7 @@
             this.tileStringsTextBox14.Name = "tileStringsTextBox14";
             this.tileStringsTextBox14.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox14.TabIndex = 13;
-            this.tileStringsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox15
             // 
@@ -267,7 +267,7 @@
             this.tileStringsTextBox15.Name = "tileStringsTextBox15";
             this.tileStringsTextBox15.Size = new System.Drawing.Size(55, 22);
             this.tileStringsTextBox15.TabIndex = 14;
-            this.tileStringsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsTextBox16
             // 
@@ -277,7 +277,7 @@
             this.tileStringsTextBox16.Name = "tileStringsTextBox16";
             this.tileStringsTextBox16.Size = new System.Drawing.Size(57, 22);
             this.tileStringsTextBox16.TabIndex = 15;
-            this.tileStringsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tileStringsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tileStringsLabel
             // 
@@ -330,7 +330,7 @@
             this.tilePointsTextBox1.Name = "tilePointsTextBox1";
             this.tilePointsTextBox1.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox1.TabIndex = 0;
-            this.tilePointsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox2
             // 
@@ -340,7 +340,7 @@
             this.tilePointsTextBox2.Name = "tilePointsTextBox2";
             this.tilePointsTextBox2.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox2.TabIndex = 1;
-            this.tilePointsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox3
             // 
@@ -350,7 +350,7 @@
             this.tilePointsTextBox3.Name = "tilePointsTextBox3";
             this.tilePointsTextBox3.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox3.TabIndex = 2;
-            this.tilePointsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox4
             // 
@@ -360,7 +360,7 @@
             this.tilePointsTextBox4.Name = "tilePointsTextBox4";
             this.tilePointsTextBox4.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox4.TabIndex = 3;
-            this.tilePointsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox5
             // 
@@ -370,7 +370,7 @@
             this.tilePointsTextBox5.Name = "tilePointsTextBox5";
             this.tilePointsTextBox5.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox5.TabIndex = 4;
-            this.tilePointsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox6
             // 
@@ -380,7 +380,7 @@
             this.tilePointsTextBox6.Name = "tilePointsTextBox6";
             this.tilePointsTextBox6.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox6.TabIndex = 5;
-            this.tilePointsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox7
             // 
@@ -390,7 +390,7 @@
             this.tilePointsTextBox7.Name = "tilePointsTextBox7";
             this.tilePointsTextBox7.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox7.TabIndex = 6;
-            this.tilePointsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox8
             // 
@@ -400,7 +400,7 @@
             this.tilePointsTextBox8.Name = "tilePointsTextBox8";
             this.tilePointsTextBox8.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox8.TabIndex = 7;
-            this.tilePointsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox9
             // 
@@ -410,7 +410,7 @@
             this.tilePointsTextBox9.Name = "tilePointsTextBox9";
             this.tilePointsTextBox9.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox9.TabIndex = 8;
-            this.tilePointsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox10
             // 
@@ -420,7 +420,7 @@
             this.tilePointsTextBox10.Name = "tilePointsTextBox10";
             this.tilePointsTextBox10.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox10.TabIndex = 9;
-            this.tilePointsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox11
             // 
@@ -430,7 +430,7 @@
             this.tilePointsTextBox11.Name = "tilePointsTextBox11";
             this.tilePointsTextBox11.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox11.TabIndex = 10;
-            this.tilePointsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox12
             // 
@@ -440,7 +440,7 @@
             this.tilePointsTextBox12.Name = "tilePointsTextBox12";
             this.tilePointsTextBox12.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox12.TabIndex = 11;
-            this.tilePointsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox13
             // 
@@ -450,7 +450,7 @@
             this.tilePointsTextBox13.Name = "tilePointsTextBox13";
             this.tilePointsTextBox13.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox13.TabIndex = 12;
-            this.tilePointsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox13.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox14
             // 
@@ -460,7 +460,7 @@
             this.tilePointsTextBox14.Name = "tilePointsTextBox14";
             this.tilePointsTextBox14.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox14.TabIndex = 13;
-            this.tilePointsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox15
             // 
@@ -470,7 +470,7 @@
             this.tilePointsTextBox15.Name = "tilePointsTextBox15";
             this.tilePointsTextBox15.Size = new System.Drawing.Size(55, 22);
             this.tilePointsTextBox15.TabIndex = 14;
-            this.tilePointsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsTextBox16
             // 
@@ -480,7 +480,7 @@
             this.tilePointsTextBox16.Name = "tilePointsTextBox16";
             this.tilePointsTextBox16.Size = new System.Drawing.Size(57, 22);
             this.tilePointsTextBox16.TabIndex = 15;
-            this.tilePointsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.tilePointsTextBox16.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // tilePointsLabel
             // 
@@ -521,8 +521,8 @@
             this.sortByComboBox.Name = "sortByComboBox";
             this.sortByComboBox.Size = new System.Drawing.Size(240, 23);
             this.sortByComboBox.TabIndex = 0;
-            this.sortByComboBox.SelectionChangeCommitted += new System.EventHandler(this.sortByComboBox_SelectionChangeCommitted);
-            this.sortByComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sortByComboBox_KeyDown);
+            this.sortByComboBox.SelectionChangeCommitted += new System.EventHandler(this.SortByComboBox_SelectionChangeCommitted);
+            this.sortByComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SortByComboBox_KeyDown);
             // 
             // solveWithTilePointsGuessButton
             // 
@@ -533,8 +533,8 @@
             this.solveWithTilePointsGuessButton.TabIndex = 2;
             this.solveWithTilePointsGuessButton.Text = "Solve with points guess";
             this.solveWithTilePointsGuessButton.UseVisualStyleBackColor = true;
-            this.solveWithTilePointsGuessButton.Click += new System.EventHandler(this.solveWithTilePointsGuessButton_Click);
-            this.solveWithTilePointsGuessButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.solveWithTilePointsGuessButton_KeyDown);
+            this.solveWithTilePointsGuessButton.Click += new System.EventHandler(this.SolveWithTilePointsGuessButton_Click);
+            this.solveWithTilePointsGuessButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SolveWithTilePointsGuessButton_KeyDown);
             // 
             // solveButton
             // 
@@ -545,8 +545,8 @@
             this.solveButton.TabIndex = 4;
             this.solveButton.Text = "Solve";
             this.solveButton.UseVisualStyleBackColor = true;
-            this.solveButton.Click += new System.EventHandler(this.solveButton_Click);
-            this.solveButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.solveButton_KeyDown);
+            this.solveButton.Click += new System.EventHandler(this.SolveButton_Click);
+            this.solveButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SolveButton_KeyDown);
             // 
             // clearBoardButton
             // 
@@ -557,8 +557,8 @@
             this.clearBoardButton.TabIndex = 7;
             this.clearBoardButton.Text = "Clear Board";
             this.clearBoardButton.UseVisualStyleBackColor = true;
-            this.clearBoardButton.Click += new System.EventHandler(this.clearBoardButton_Click);
-            this.clearBoardButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.clearBoardButton_KeyDown);
+            this.clearBoardButton.Click += new System.EventHandler(this.ClearBoardButton_Click);
+            this.clearBoardButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ClearBoardButton_KeyDown);
             // 
             // wordsListBox
             // 
@@ -569,8 +569,8 @@
             this.wordsListBox.Name = "wordsListBox";
             this.wordsListBox.Size = new System.Drawing.Size(246, 354);
             this.wordsListBox.TabIndex = 5;
-            this.wordsListBox.SelectedIndexChanged += new System.EventHandler(this.wordsListBox_SelectedIndexChanged);
-            this.wordsListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wordsListBox_KeyDown);
+            this.wordsListBox.SelectedIndexChanged += new System.EventHandler(this.WordsListBox_SelectedIndexChanged);
+            this.wordsListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WordsListBox_KeyDown);
             // 
             // totalPointsLabel
             // 
@@ -617,14 +617,14 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.loadToolStripMenuItem.Text = "Load";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItem_Click);
             // 
             // clearPathButton
             // 
@@ -635,8 +635,8 @@
             this.clearPathButton.TabIndex = 6;
             this.clearPathButton.Text = "Clear Path";
             this.clearPathButton.UseVisualStyleBackColor = true;
-            this.clearPathButton.Click += new System.EventHandler(this.clearPathButton_Click);
-            this.clearPathButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.clearPathButton_KeyDown);
+            this.clearPathButton.Click += new System.EventHandler(this.ClearPathButton_Click);
+            this.clearPathButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ClearPathButton_KeyDown);
             // 
             // tileStringsWordLabel
             // 
@@ -678,7 +678,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "SolverForm";
             this.Text = "Dave\'s Wordament Solver";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.tileStringsTableLayoutPanel.ResumeLayout(false);
             this.tileStringsTableLayoutPanel.PerformLayout();
             this.tilePointsTableLayoutPanel.ResumeLayout(false);

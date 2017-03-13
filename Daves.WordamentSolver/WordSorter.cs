@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Daves.WordamentSolver.WordSorters;
+﻿using Daves.WordamentSolver.WordSorters;
+using System.Collections.Generic;
 
 namespace Daves.WordamentSolver
 {

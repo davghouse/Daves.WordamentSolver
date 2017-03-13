@@ -4,17 +4,23 @@ namespace Daves.WordamentSolver.Tiles
 {
     public class EitherOrTile : Tile
     {
-        protected EitherOrTile(int row, int column, int position, string @string, int? points)
-            : base(row, column, position, @string, points)
+        protected EitherOrTile(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+            : base(row, column, position, @string, points, basicTileValues)
         { }
 
-        public static EitherOrTile TryCreate(int row, int column, int position, string @string, int? points)
-            => @string != null
-            && @string.Length == 3
-            && char.IsUpper(@string[0])
-            && char.IsUpper(@string[2])
-            && (@string[1] == '/' || @string[1] == '\\')
-            ? new EitherOrTile(row, column, position, @string, points) : null;
+        public static EitherOrTile TryCreate(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
+        {
+            basicTileValues = basicTileValues ?? Board.EnglishBasicTileValues;
+
+            return @string != null
+                && @string.Length == 3
+                && basicTileValues.ContainsKey(@string[0])
+                && basicTileValues.ContainsKey(@string[2])
+                && (@string[1] == '/' || @string[1] == '\\')
+                ? new EitherOrTile(row, column, position, @string, points) : null;
+        }
 
         public char FirstLetter => String[0];
         public char SecondLetter => String[2];

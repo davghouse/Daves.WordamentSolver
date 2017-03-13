@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
-using Daves.WordamentSolver.Tiles;
+﻿using Daves.WordamentSolver.Tiles;
+using System.Collections.Generic;
 
 namespace Daves.WordamentSolver
 {
     public abstract class Tile
     {
-        protected Tile(int row, int column, int position, string @string, int? points)
+        protected readonly IReadOnlyDictionary<char, int> _basicTilesValues;
+
+        protected Tile(int row, int column, int position, string @string, int? points,
+            IReadOnlyDictionary<char, int> basicTileValues = null)
         {
             Row = row;
             Column = column;
             Position = position;
             String = @string;
             Points = points;
+            _basicTilesValues = basicTileValues ?? Board.EnglishBasicTileValues;
         }
 
         public int Row { get; }
@@ -32,9 +36,7 @@ namespace Daves.WordamentSolver
         // Assuming it's been verified this tile can extend the path yielding the given string.
         public abstract IEnumerable<string> Extend(string @string);
 
-        public static readonly IReadOnlyDictionary<char, int> BasicTileValues = new Dictionary<char, int>
-           {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2},
-           {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8},
-           {'R', 2}, {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};
+        public override string ToString()
+            => $"[{Row}, {Column}, {String}]";
     }
 }

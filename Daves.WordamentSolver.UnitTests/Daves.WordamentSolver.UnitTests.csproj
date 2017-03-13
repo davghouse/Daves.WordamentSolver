@@ -52,6 +52,7 @@
     <Compile Include="AssemblyInitializer.cs" />
     <Compile Include="BoardTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleSolutionTests.cs" />
     <Compile Include="SolutionTests.cs" />
     <Compile Include="WordSorters\WordSorterTests.cs" />
   </ItemGroup>

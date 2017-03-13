@@ -68,8 +68,7 @@ namespace Daves.WordamentSolver.UI.Views
 
         private int? GetTilePoints(int tilePointsTextBoxIndex)
         {
-            int points;
-            if (int.TryParse(_tilePointsTextBoxes[tilePointsTextBoxIndex].Text, out points))
+            if (int.TryParse(_tilePointsTextBoxes[tilePointsTextBoxIndex].Text, out int points))
                 return points;
 
             return null;
@@ -78,19 +77,19 @@ namespace Daves.WordamentSolver.UI.Views
         public void DisplaySolution(Solution solution)
         {
             int longestPointsStringLength = solution.Words
-                .Select(w => w.Points.ToString().Length)
+                .Select(w => w.BestPathPoints.ToString().Length)
                 .DefaultIfEmpty()
                 .Max();
 
             wordsListBox.Items.Clear();
             wordsListBox.Items.AddRange(solution.Words
-                .Select(w => new { PointsString = w.Points.ToString(), WordString = w.String })
+                .Select(w => new { PointsString = w.BestPathPoints.ToString(), WordString = w.String })
                 // Pad with whitespaces to right-align the word strings.
                 .Select(w => $"{w.PointsString}{new string(' ', longestPointsStringLength - w.PointsString.Length)} {w.WordString}")
                 .ToArray());
 
             totalPointsLabel.Text = $"Total points: {solution.TotalPoints}";
-            wordsFoundLabel.Text = $"Words found: {solution.WordsFound}";
+            wordsFoundLabel.Text = $"Words found: {solution.TotalWords}";
         }
 
         public void DisplayPath(Word word)
@@ -106,11 +105,11 @@ namespace Daves.WordamentSolver.UI.Views
             if (word != null)
             {
                 Color[] colorGradient = ColorHelper
-                    .GetColorGradient(Color.LightGreen, Color.Tomato, word.Path.Count)
+                    .GetColorGradient(Color.LightGreen, Color.Tomato, word.BestPath.Length)
                     .ToArray();
-                for (int i = 0; i < word.Path.Count; ++i)
+                for (int i = 0; i < word.BestPath.Length; ++i)
                 {
-                    TextBox textBox = _tileStringTextBoxes[word.Path[i].Position];
+                    TextBox textBox = _tileStringTextBoxes[word.BestPath[i].Position];
                     textBox.Text = $"{i + 1}|{textBox.Text}";
                     textBox.Font = new Font(textBox.Font, FontStyle.Bold);
                     textBox.BackColor = colorGradient[i];
@@ -124,10 +123,10 @@ namespace Daves.WordamentSolver.UI.Views
             }
         }
 
-        private void sortByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void SortByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
             => SortBySelectionChanged(sortByComboBox.SelectedIndex != -1 ? sortByComboBox.SelectedIndex : (int?)null);
 
-        private void solveWithTilePointsGuessButton_Click(object sender, EventArgs e)
+        private void SolveWithTilePointsGuessButton_Click(object sender, EventArgs e)
         {
             SolveWithTilePointsGuess();
 
@@ -137,7 +136,7 @@ namespace Daves.WordamentSolver.UI.Views
             SendKeys.Send("{RIGHT}");
         }
 
-        private void solveButton_Click(object sender, EventArgs e)
+        private void SolveButton_Click(object sender, EventArgs e)
         {
             Solve();
 
@@ -146,16 +145,16 @@ namespace Daves.WordamentSolver.UI.Views
             SendKeys.Send("{RIGHT}");
         }
 
-        private void wordsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void WordsListBox_SelectedIndexChanged(object sender, EventArgs e)
             => WordSelectionChanged(wordsListBox.SelectedIndex != -1 ? wordsListBox.SelectedIndex : (int?)null);
 
-        private void clearPathButton_Click(object sender, EventArgs e)
+        private void ClearPathButton_Click(object sender, EventArgs e)
             => ClearPath();
 
-        private void clearBoardButton_Click(object sender, EventArgs e)
+        private void ClearBoardButton_Click(object sender, EventArgs e)
             => ClearBoard();
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog
             {
@@ -169,7 +168,7 @@ namespace Daves.WordamentSolver.UI.Views
             }
         }
 
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog
             {
@@ -203,37 +202,37 @@ namespace Daves.WordamentSolver.UI.Views
             }
         }
 
-        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
             => MapAllowedKeyDownsToTab(e, Keys.Space, Keys.Enter);
 
-        private void wordsListBox_KeyDown(object sender, KeyEventArgs e)
+        private void WordsListBox_KeyDown(object sender, KeyEventArgs e)
             => MapAllowedKeyDownsToTab(e, Keys.Space);
 
-        private void sortByComboBox_KeyDown(object sender, KeyEventArgs e)
+        private void SortByComboBox_KeyDown(object sender, KeyEventArgs e)
             => MapAllowedKeyDownsToTab(e, Keys.Space);
 
-        private void solveWithTilePointsGuessButton_KeyDown(object sender, KeyEventArgs e)
+        private void SolveWithTilePointsGuessButton_KeyDown(object sender, KeyEventArgs e)
         {
             MapAllowedKeyDownsToTab(e, Keys.Space);
-            MapEnterKeyDownToButtonClick(e, () => solveWithTilePointsGuessButton_Click(sender, e));
+            MapEnterKeyDownToButtonClick(e, () => SolveWithTilePointsGuessButton_Click(sender, e));
         }
 
-        private void solveButton_KeyDown(object sender, KeyEventArgs e)
+        private void SolveButton_KeyDown(object sender, KeyEventArgs e)
         {
             MapAllowedKeyDownsToTab(e, Keys.Space);
-            MapEnterKeyDownToButtonClick(e, () => solveButton_Click(sender, e));
+            MapEnterKeyDownToButtonClick(e, () => SolveButton_Click(sender, e));
         }
 
-        private void clearPathButton_KeyDown(object sender, KeyEventArgs e)
+        private void ClearPathButton_KeyDown(object sender, KeyEventArgs e)
         {
             MapAllowedKeyDownsToTab(e, Keys.Space);
-            MapEnterKeyDownToButtonClick(e, () => clearPathButton_Click(sender, e));
+            MapEnterKeyDownToButtonClick(e, () => ClearPathButton_Click(sender, e));
         }
 
-        private void clearBoardButton_KeyDown(object sender, KeyEventArgs e)
+        private void ClearBoardButton_KeyDown(object sender, KeyEventArgs e)
         {
             MapAllowedKeyDownsToTab(e, Keys.Space);
-            MapEnterKeyDownToButtonClick(e, () => clearBoardButton_Click(sender, e));
+            MapEnterKeyDownToButtonClick(e, () => ClearBoardButton_Click(sender, e));
         }
     }
 }

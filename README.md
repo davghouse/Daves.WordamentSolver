@@ -1,9 +1,9 @@
 Dave's Wordament Solver
 ================
 
-Wordament solver that handles an arbitrary number of special tiles and approximates a best path.
+Wordament solver that handles an arbitrary number of special tiles, finds the many-to-many word-path relationships, and approximates a best path.
 
-Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.3.2).
+Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.3.3).
 
 Solver library available as a [NuGet Package](https://www.nuget.org/packages/Daves.WordamentSolver).
 

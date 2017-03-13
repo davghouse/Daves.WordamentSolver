@@ -4,82 +4,57 @@ using System.Linq;
 
 namespace Daves.WordamentSolver
 {
-    public class Word : IEquatable<Word>
+    // A word corresponds to a string. A word can be created through multiple paths, one being the best (most points).
+    public class Word
     {
-        public Word(string @string, IEnumerable<Tile> path)
-        {
-            String = @string;
-            Path = path.ToArray();
-            Points = ComputePoints();
-        }
+        protected internal Word(string @string)
+            => String = @string;
 
         public string String { get; }
-        public IReadOnlyList<Tile> Path { get; }
+        public int Length => String.Length;
+        public char StartLetter => String[0];
 
-        public int Points { get; }
-        protected virtual int ComputePoints()
+        protected HashSet<Path> _paths = new HashSet<Path>();
+        public IReadOnlyCollection<Path> Paths => _paths;
+        protected internal virtual bool AddPath(Path path)
         {
-            int points = Path.Sum(t => t.Points) ?? 0;
+            if (_paths.Add(path))
+            {
+                int points = GetPoints(path);
 
-            if (WordLength >= 8) return (int)(2.5 * points);
-            if (WordLength >= 6) return 2 * points;
-            if (WordLength >= 5) return (int)(1.5 * points);
+                if (BestPath == null || points > BestPathPoints)
+                {
+                    BestPath = path;
+                    BestPathPoints = points;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        // At first I thought to make Points a property of Path, because as you can see, the logic as it stands
+        // now is independent of the word's string, as the word length for a tile sequence is fixed. However,
+        // normal Wordament supports themes where words have boosted point values, so that wouldn't generalize well.
+        public virtual int GetPoints(Path path)
+        {
+            int points = path.Tiles.Sum(t => t.Points) ?? 0;
+
+            if (Length >= 8) return (int)(2.5 * points);
+            if (Length >= 6) return 2 * points;
+            if (Length >= 5) return (int)(1.5 * points);
             return points;
         }
 
-        public int WordLength => String.Length;
-        public double PointsOverWordLength => Points / WordLength;
-        public double PointsOverPathLength => Points / PathLength;
-        public int StartPosition => Path[0].Position;
-        public char StartLetter => String[0];
-
-        protected double? _pathLength;
-        public double PathLength
-        {
-            get
-            {
-                if (!_pathLength.HasValue)
-                {
-                    _pathLength = ComputePathLength();
-                }
-
-                return _pathLength.Value;
-            }
-        }
-
-        // TODO: Maintain this if it becomes possible to make a move to tiles beyond the adjacent ones.
-        protected virtual double ComputePathLength()
-        {
-            double pathLength = 0;
-            for (int i = 1; i < Path.Count; ++i)
-            {
-                Tile currentTile = Path[i - 1];
-                Tile nextTile = Path[i];
-
-                if (currentTile.Row == nextTile.Row
-                    || currentTile.Column == nextTile.Column)
-                {
-                    pathLength += 1; // Next is right, left, down, or up from current.
-                }
-                else
-                {
-                    pathLength += Math.Sqrt(2); // Next is diagonal from current.
-                }
-            }
-
-            return pathLength;
-        }
-
-        public override bool Equals(object other)
-            => Equals(other as Word);
-
-        public virtual bool Equals(Word other)
-            => String.Equals(other?.String, StringComparison.Ordinal);
-
-        public override int GetHashCode()
-            => StringComparer.Ordinal.GetHashCode(String);
+        public Path BestPath { get; protected set; }
+        public int BestPathPoints { get; protected set; }
+        public double BestPathLength => BestPath.PathLength;
+        public double BestPathPointsOverWordLength => BestPathPoints / Length;
+        public double BestPathPointsOverPathLength => BestPathPoints / BestPathLength;
+        public int BestPathStartPosition => BestPath[0].Position;
 
         public override string ToString()
-            => $"{Points}\t{String.ToLower()}";
+            => $"{BestPathPoints}\t{String}";
     }
 }
