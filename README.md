@@ -3,7 +3,7 @@ Dave's Wordament Solver
 
 Wordament solver that handles an arbitrary number of special tiles, finds the many-to-many word-path relationships, and approximates a best path.
 
-Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.3.3).
+Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.4.0).
 
 Solver library available as a [NuGet Package](https://www.nuget.org/packages/Daves.WordamentSolver).
 
@@ -19,12 +19,16 @@ As a minor optimization, previous search results are used to skip down into the 
 I'm using the Model-View-Presenter pattern.
 The view knows nothing about the presenter, it just fires events for the presenter to subscribe to and handle. Everything knows about the model (but as little as possible).
 
-Everything is made to be generalizable, so it would be easy to extend the solution to support new tile types, different board sizes (as long as they're rectangular), and different allowed moves (like only diagonals, or weird jumps).
+Everything is made to be generalizable, so it would be easy to extend the solution to support new tile types, different board sizes (as long as they're rectangular), different allowed moves (like only diagonals, or weird jumps), or other languages.
 Any number of special tiles are allowed, and invalid tiles are handled gracefully by simply being ignored.
 
-The best path is a travelling salesman problem where words are vertices and edge lengths are the distances from a word's last tile to another word's first tile (in units of tile length).
+The best path is a travelling salesman problem where words are vertices and edge lengths are the distances from a word's last tile to another word's first tile.
 Visiting a word adds on a fixed amount of length equal to the word's path length (but you could incorporate this into the edges).
-We want to find the shortest path visiting each word exactly once.
+We want to find the shortest path visiting each word exactly once... well, sort of.
+It's a little more complicated than that because we don't actually visit words, we visit paths.
+A path can yield multiple words (either/or tiles), and it's not just any path producing a word that we visit, the path has to be a best path for a word.
+Words can be produced by many paths, the best one is the one that's worth the most points.
+For a board full of basic tiles these distinctions don't matter, because paths only yield one word and all paths yielding a word are worth the same amount of points.
 I'm just doing a nearest neighbor approximation for now, which seems really good.
 For example, on a board where the total path length from the words themselves was 930, the nearest neighbor path length was 1060, and the path length from sorting by anything else was around 1400.
 
@@ -48,13 +52,6 @@ I don't know how to create those designations.
 This matters because at least 'common' digram words get a bonus of 5 points, after length multipliers are applied.
 Theme-based words get bonuses too, another case I can't handle, and there could be more.
 
-There are ordering options based on physical path length.
-Paths may be non-unique and I take the first valid one found, so the displayed ordering may be one of many.
-
-Tile points can be input manually, or if the board-type allows it or an approximation is acceptable, the following values can be automatically used:
-
-A 2, B 5, C 3, D 3, E 1, F 5, G 4, H 4, I 2, J 10, K 6, L 3, M 4, N 2, O 2, P 4, Q 8, R 2, S 2, T 2, U 4, V 6, W 6, X 9, Y 5, Z 8.
-
 Either/or tiles get a fixed value of 20 points.
 That's what I've seen in recent games (as of 2014).
 Other multi-letter tiles get their individual values summed + 5.
@@ -62,4 +59,3 @@ Other multi-letter tiles get their individual values summed + 5.
 
 I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards.
 I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles.
-I've only looked into it a little bit.

@@ -82,7 +82,12 @@ namespace Daves.WordamentSolver.UnitTests.WordSorters
         [TestMethod]
         public void ApproximateBestPathSorterFindsABetterPathThanOtherWordSorters()
         {
-            var board = new Board(4, 4, p => _tileStrings2[p], p => null);
+            ApproximateBestPathSorterFindsABetterPathThanOtherWordSorters(new Board(4, 4, p => _tileStrings2[p], p => null));
+            ApproximateBestPathSorterFindsABetterPathThanOtherWordSorters(new Board(4, 4, p => SolutionTests.ComplexTileStrings[p], p => null));
+        }
+
+        private void ApproximateBestPathSorterFindsABetterPathThanOtherWordSorters(Board board)
+        {
             board.GuessTilePoints();
             var solution = new Solution(board);
 
