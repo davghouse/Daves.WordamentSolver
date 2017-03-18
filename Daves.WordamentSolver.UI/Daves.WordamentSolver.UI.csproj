@@ -67,7 +67,6 @@
   <ItemGroup>
     <Compile Include="Contracts\ISolverView.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
-    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Presenters\SolverPresenter.cs" />
     <Compile Include="Views\SolverForm.cs">
       <SubType>Form</SubType>

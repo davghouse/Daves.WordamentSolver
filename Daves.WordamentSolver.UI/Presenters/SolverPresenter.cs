@@ -1,7 +1,7 @@
 ﻿using Daves.WordamentSolver.UI.Contracts;
-using Daves.WordamentSolver.UI.Helpers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Daves.WordamentSolver.UI.Presenters
@@ -92,13 +92,13 @@ namespace Daves.WordamentSolver.UI.Presenters
         private void View_SaveToFile(string filePath)
         {
             IReadOnlyList<Tile> currentTiles = _view.GetBoard().Tiles;
-            FileHelper.WriteAllLines(filePath, currentTiles.Select(t => t.String)
+            File.WriteAllLines(filePath, currentTiles.Select(t => t.String)
                 .Concat(currentTiles.Select(t => t.Points?.ToString())));
         }
 
         private void View_LoadFromFile(string filePath)
         {
-            string[] lines = FileHelper.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines(filePath);
             if (lines.Length < BoardSize * 2)
                 throw new FormatException($"{filePath} doesn't correctly define a board.");
 
