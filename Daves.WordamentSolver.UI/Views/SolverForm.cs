@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Daves.WordamentSolver.UI.Contracts;
+using Daves.WordamentSolver.UI.Helpers;
+using Daves.WordamentSolver.UI.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Daves.WordamentSolver.UI.Contracts;
-using Daves.WordamentSolver.UI.Helpers;
-using Daves.WordamentSolver.UI.Properties;
 
 namespace Daves.WordamentSolver.UI.Views
 {
@@ -156,10 +156,9 @@ namespace Daves.WordamentSolver.UI.Views
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog
+            var dialog = new SaveFileDialog
             {
-                Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
-                FilterIndex = 1
+                Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -170,10 +169,9 @@ namespace Daves.WordamentSolver.UI.Views
 
         private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog
+            var dialog = new OpenFileDialog
             {
-                Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
-                FilterIndex = 1
+                Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)

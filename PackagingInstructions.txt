@@ -1,0 +1,52 @@
+I had trouble configuring the package such that the Dictionary.txt file would
+appear automatically in the referencing project's output folder, next to the .dll.
+
+It's set to Content, Copy if newer in Daves.WordamentSolver which makes sense, but in
+the .csproj I also set <Pack>false</Pack> to prevent the file from being included in
+the root directory of referencing projects.
+
+Then I use Visual Studio to build the .nupkg, change the extension to .zip, unzip, edit
+the .nuspec to look something like this (note the <files> tag; that gets added by hand):
+
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Daves.WordamentSolver</id>
+    <version>2.1.0</version>
+    <authors>Dave</authors>
+    <owners>Dave</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/davghouse/Daves.WordamentSolver</projectUrl>
+    <description>Wordament solver that handles an arbitrary number of special tiles, finds the many-to-many word-path relationships, and approximates a best path.</description>
+    <releaseNotes>2.1.0: Included default dictionary
+2.0.0: Support many-to-many word-path relationships, case-insensitivity, language extensibility, and a faster simple solution alternative
+1.4.0: Implement IReadOnlyList/ToString for convenience
+1.3.0: Solution tweaks
+1.2.0: Better Board extensibility
+1.1.0: More flexible Board constructors</releaseNotes>
+    <copyright>© 2017 Dave</copyright>
+    <tags>wordament, solver, trie, boggle, board</tags>
+    <repository type="git" url="https://github.com/davghouse/Daves.WordamentSolver.git" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build\**" target="build" />
+  </files>
+</package>
+
+Then I add that build folder (at the same folder level as the .nuspec), and it contains
+the Dictionary.txt file and a file called Daves.WordamentSolver.targets with these contents:
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Dictionary.txt">
+      <Link>Dictionary.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+
+Then zip the ~6 things in the unzipped folder again and change the extension back to .nupkg.

@@ -15,6 +15,8 @@ namespace Daves.WordamentSolver
 
         public SimpleSolution(Board board)
         {
+            if (Solution.Dictionary == null) { Solution.SetDictionary(); }
+
             _board = board;
 
             foreach (Tile tile in _board.Tiles)

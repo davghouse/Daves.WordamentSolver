@@ -12,7 +12,7 @@ namespace Daves.WordamentSolver.Tiles
         public static BasicTile TryCreate(int row, int column, int position, string @string, int? points,
             IReadOnlyDictionary<char, int> basicTileValues = null)
         {
-            basicTileValues = basicTileValues ?? Board.EnglishBasicTileValues;
+            basicTileValues = basicTileValues ?? Board.BasicTileValues;
 
             return @string != null
                 && @string.Length == 1

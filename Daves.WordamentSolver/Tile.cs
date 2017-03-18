@@ -15,7 +15,7 @@ namespace Daves.WordamentSolver
             Position = position;
             String = @string;
             Points = points;
-            _basicTilesValues = basicTileValues ?? Board.EnglishBasicTileValues;
+            _basicTilesValues = basicTileValues ?? Board.BasicTileValues;
         }
 
         public int Row { get; }

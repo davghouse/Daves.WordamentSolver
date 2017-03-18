@@ -3,6 +3,7 @@ using Daves.WordamentSolver.Tries;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Daves.WordamentSolver
@@ -10,8 +11,8 @@ namespace Daves.WordamentSolver
     public class Solution : IReadOnlyList<Word>
     {
         protected internal static Trie Dictionary { get; protected set; }
-        public static void SetDictionary(IEnumerable<string> @strings)
-            => Dictionary = new Trie(@strings.Where(s => s.Length > 2), new CaseInsensitiveCharEqualityComparer());
+        public static void SetDictionary(IEnumerable<string> @strings = null)
+            => Dictionary = new Trie((@strings ?? File.ReadLines("Dictionary.txt")).Where(s => s.Length > 2), new CaseInsensitiveCharEqualityComparer());
 
         protected readonly Board _board;
         protected readonly Dictionary<string, Word> _stringWordMap = new Dictionary<string, Word>(StringComparer.OrdinalIgnoreCase);
@@ -23,6 +24,8 @@ namespace Daves.WordamentSolver
 
         public Solution(Board board, WordSorter wordSorter = null)
         {
+            if (Dictionary == null) { SetDictionary(); }
+
             _board = board;
 
             foreach (Tile tile in _board.Tiles)
@@ -114,7 +117,7 @@ namespace Daves.WordamentSolver
         }
 
         public override string ToString()
-            => $"Total points: {TotalPoints}, Total words: {TotalWords}";
+            => $"Total points: {TotalPoints}, total words: {TotalWords}";
 
         Word IReadOnlyList<Word>.this[int index] => Words[index];
         int IReadOnlyCollection<Word>.Count => TotalWords;

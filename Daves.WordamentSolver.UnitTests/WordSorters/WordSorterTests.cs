@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Daves.WordamentSolver.WordSorters;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using Daves.WordamentSolver.WordSorters;
 
 namespace Daves.WordamentSolver.UnitTests.WordSorters
 {

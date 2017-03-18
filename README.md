@@ -3,7 +3,7 @@ Dave's Wordament Solver
 
 Wordament solver that handles an arbitrary number of special tiles, finds the many-to-many word-path relationships, and approximates a best path.
 
-Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.4.0).
+Latest release [here](https://github.com/davghouse/Daves.WordamentSolver/releases/tag/v1.4.1).
 
 Solver library available as a [NuGet Package](https://www.nuget.org/packages/Daves.WordamentSolver).
 
@@ -34,18 +34,15 @@ For example, on a board where the total path length from the words themselves wa
 
 Limitations
 -----------
-I'm using the TWL06 dictionary, which doesn't have 16-letter words.
-
+The dictionary file is based off of the TWL06 dictionary, which doesn't have 16-letter words.
 Wordament has something like 170 banned words, and I don't know all of them.
 The few I do know I haven't bothered removing from the dictionary.
 There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores, for instance.
-I tried using SOWPODS and that was more off than TWL.
+I tried using SOWPODS but that was more off than TWL.
 As it stands right now, the TWL dictionary is pretty close.
 Were the banned words removed, it might be a proper subset of the Wordament dictionary.
 I know for sure that SOWPODS is no where near a subset, which seems worse.
-
-All that being said, the dictionary is configurable through the exe.config.
-Specify the name of a newline-separated dictionary and put it in the same place as the TWL06 one.
+Ideally the dictionary gets maintained with new words being added as they're discovered to be missing.
 
 In the game, words have 'common' and 'uncommon' designations.
 I don't know how to create those designations.
@@ -56,6 +53,3 @@ Either/or tiles get a fixed value of 20 points.
 That's what I've seen in recent games (as of 2014).
 Other multi-letter tiles get their individual values summed + 5.
 3 or 4 might be correct more of the time, but we probably want to focus on that tile regardless.
-
-I'm not sure if base tiles always have the same values when not specified otherwise in high-value type boards / letter in the corners type boards.
-I'm not sure if I can figure out the exact value of prefix/suffix/digram/either\or tiles.

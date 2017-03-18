@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using Daves.WordamentSolver.UI.Helpers;
-using Daves.WordamentSolver.UI.Presenters;
+﻿using Daves.WordamentSolver.UI.Presenters;
 using Daves.WordamentSolver.UI.Views;
+using System;
+using System.Windows.Forms;
 
 namespace Daves.WordamentSolver.UI
 {
@@ -16,7 +15,7 @@ namespace Daves.WordamentSolver.UI
 
             try
             {
-                Solution.SetDictionary(FileHelper.ReadDictionaryFile());
+                Solution.SetDictionary();
             }
             catch (Exception e)
             {

@@ -17,7 +17,7 @@ namespace Daves.WordamentSolver
         {
             BoardHeight = boardHeight;
             BoardWidth = boardWidth;
-            _basicTilesValues = basicTileValues ?? EnglishBasicTileValues;
+            _basicTilesValues = basicTileValues ?? BasicTileValues;
 
             Tiles = tileStrings.Zip(tilePoints, (s, p) => new { @string = s, points = p })
                 .Select((a, i) => CreateTile(
@@ -49,7 +49,7 @@ namespace Daves.WordamentSolver
         {
             BoardHeight = tileStrings.GetLength(0);
             BoardWidth = tileStrings.GetLength(1);
-            _basicTilesValues = basicTileValues ?? EnglishBasicTileValues;
+            _basicTilesValues = basicTileValues ?? BasicTileValues;
 
             var tiles = new Tile[BoardSize];
             for (int r = 0; r < BoardHeight; ++r)
@@ -74,7 +74,7 @@ namespace Daves.WordamentSolver
         public int BoardSize => BoardHeight * BoardWidth;
         public virtual IReadOnlyList<Tile> Tiles { get; protected set; }
 
-        public virtual Tile CreateTile(int row, int column, int position, string @string, int? points)
+        protected virtual Tile CreateTile(int row, int column, int position, string @string, int? points)
             => BasicTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
             ?? DigramTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
             ?? PrefixTile.TryCreate(row, column, position, @string, points, _basicTilesValues)
@@ -124,7 +124,7 @@ namespace Daves.WordamentSolver
             }
         }
 
-        public static readonly IReadOnlyDictionary<char, int> EnglishBasicTileValues = new Dictionary<char, int>(new CaseInsensitiveCharEqualityComparer())
+        public static readonly IReadOnlyDictionary<char, int> BasicTileValues = new Dictionary<char, int>(new CaseInsensitiveCharEqualityComparer())
            {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2},
             {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, {'R', 2},
             {'S', 2}, {'T', 2}, {'U', 4}, {'V', 6}, {'W', 6}, {'X', 9}, {'Y', 5}, {'Z', 8}};

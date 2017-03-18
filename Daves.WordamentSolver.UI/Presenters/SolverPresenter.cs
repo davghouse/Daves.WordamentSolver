@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Daves.WordamentSolver.UI.Contracts;
+using Daves.WordamentSolver.UI.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Daves.WordamentSolver.UI.Contracts;
-using Daves.WordamentSolver.UI.Helpers;
 
 namespace Daves.WordamentSolver.UI.Presenters
 {
@@ -111,8 +111,7 @@ namespace Daves.WordamentSolver.UI.Presenters
             int?[] tilePoints = new int?[BoardSize];
             for (int i = 0; i < BoardSize; ++i)
             {
-                int points;
-                if (int.TryParse(lines[i + BoardSize], out points))
+                if (int.TryParse(lines[i + BoardSize], out int points))
                 {
                     tilePoints[i] = points;
                 }
