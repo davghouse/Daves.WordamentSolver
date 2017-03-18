@@ -37,7 +37,7 @@ Limitations
 The dictionary file is based off of the TWL06 dictionary, which doesn't have 16-letter words.
 Wordament has something like 170 banned words, and I don't know all of them.
 The few I do know I haven't bothered removing from the dictionary.
-There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores, for instance.
+There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores.
 I tried using SOWPODS but that was more off than TWL.
 As it stands right now, the TWL dictionary is pretty close.
 Were the banned words removed, it might be a proper subset of the Wordament dictionary.
