@@ -1,4 +1,5 @@
 ﻿using Daves.WordamentSolver.Tiles;
+using System;
 using System.Collections.Generic;
 
 namespace Daves.WordamentSolver
@@ -29,9 +30,16 @@ namespace Daves.WordamentSolver
         // Provided for convenience so doing a contains check against the path built so far isn't necessary.
         public bool IsTaken { get; set; }
 
-        // Assuming that the rules governing board movement allow this tile to be reached in one move from the last tile.
-        public virtual bool CanExtend(IReadOnlyList<Tile> path)
-            => !IsTaken && !(path[path.Count - 1] is SuffixTile);
+        public virtual bool CanExtend(IReadOnlyList<Tile> tiles)
+        {
+            if (IsTaken) return false;
+            if (tiles.Count == 0) return true;
+
+            Tile previousTile = tiles[tiles.Count - 1];
+            return Math.Abs(previousTile.Row - Row) <= 1
+                && Math.Abs(previousTile.Column - Column) <= 1
+                && !(previousTile is SuffixTile);
+        }
 
         // Assuming it's been verified this tile can extend the path yielding the given string.
         public abstract IEnumerable<string> Extend(string @string);

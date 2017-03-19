@@ -28,8 +28,8 @@ namespace Daves.WordamentSolver.Tiles
         public override void GuessPoints()
             => Points = Letters.Sum(c => _basicTilesValues[c]) + 5;
 
-        public override bool CanExtend(IReadOnlyList<Tile> path)
-            => path.Count == 0;
+        public override bool CanExtend(IReadOnlyList<Tile> tiles)
+            => tiles.Count == 0;
 
         public override IEnumerable<string> Extend(string @string)
         {

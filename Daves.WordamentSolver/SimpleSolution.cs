@@ -44,8 +44,7 @@ namespace Daves.WordamentSolver
 
                 if (searchResult.ContainsPrefix)
                 {
-                    foreach (Tile tile in _board.GetTilesNoMoreThanOneMoveAway(nextTile)
-                        .Where(t => t.CanExtend(tilesSoFar)))
+                    foreach (Tile tile in _board.Tiles.Where(t => t.CanExtend(tilesSoFar)))
                     {
                         SearchUsing(nextTile: tile, tilesSoFar: tilesSoFar, wordSoFar: word, searchResultSoFar: searchResult);
                     }

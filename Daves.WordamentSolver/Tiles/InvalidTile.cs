@@ -12,7 +12,7 @@ namespace Daves.WordamentSolver.Tiles
         public override void GuessPoints()
             => Points = null;
 
-        public override bool CanExtend(IReadOnlyList<Tile> path)
+        public override bool CanExtend(IReadOnlyList<Tile> tiles)
             => false;
 
         public override IEnumerable<string> Extend(string @string)

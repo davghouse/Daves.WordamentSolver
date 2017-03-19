@@ -107,23 +107,6 @@ namespace Daves.WordamentSolver
             return tile.Points;
         }
 
-        // So I could name this "GetAdjacentTiles", but you can see how different game modes could allow different moves.
-        // The name as is reflects the core game concept, not the specific manifestation of it we see in standard Wordament.
-        public virtual IEnumerable<Tile> GetTilesNoMoreThanOneMoveAway(Tile tile)
-        {
-            for (int r = tile.Row - 1; r <= tile.Row + 1; ++r)
-            {
-                if (r < 0 || r >= BoardHeight) continue;
-
-                for (int c = tile.Column - 1; c <= tile.Column + 1; ++c)
-                {
-                    if (c < 0 || c >= BoardWidth) continue;
-
-                    yield return Tiles[r * BoardWidth + c];
-                }
-            }
-        }
-
         public static readonly IReadOnlyDictionary<char, int> BasicTileValues = new Dictionary<char, int>(new CaseInsensitiveCharEqualityComparer())
            {{'A', 2}, {'B', 5}, {'C', 3}, {'D', 3}, {'E', 1}, {'F', 5}, {'G', 4}, {'H', 4}, {'I', 2},
             {'J', 10}, {'K', 6}, {'L', 3}, {'M', 4}, {'N', 2}, {'O', 2}, {'P', 4}, {'Q', 8}, {'R', 2},
