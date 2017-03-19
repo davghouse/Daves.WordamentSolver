@@ -34,7 +34,7 @@ For example, on a board where the total path length from the words themselves wa
 
 Limitations
 -----------
-The dictionary file is based off of the TWL06 dictionary, which doesn't have 16-letter words.
+The dictionary file is based off of the TWL06 dictionary, with 16 letter words added from litscape.com.
 Wordament has something like 170 banned words, and I don't know all of them.
 The few I do know I haven't bothered removing from the dictionary.
 There are also words Wordament has that my dictionary doesn't, like s'mores spelled as smores.
