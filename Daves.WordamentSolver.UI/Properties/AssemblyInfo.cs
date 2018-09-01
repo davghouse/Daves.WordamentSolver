@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Daves.WordamentSolver.UI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Dave's Wordament Solver")]
+[assembly: AssemblyDescription("Dave's Wordament Solver")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Daves.WordamentSolver.UI")]
+[assembly: AssemblyProduct("Dave's Wordament Solver")]
 [assembly: AssemblyCopyright("Copyright © 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
