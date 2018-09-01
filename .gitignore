@@ -51,6 +51,9 @@ ipch/
 *.sdf
 *.cachefile
 
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
 # Visual Studio profiler
 *.psess
 *.vsp
